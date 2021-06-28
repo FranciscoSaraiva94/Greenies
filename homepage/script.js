@@ -140,7 +140,7 @@ function showGroceryitems(groceryItems) {
                 <h5 class="itemQuantity">${element.quantity}</h5>
                 <button class="cartButtonPlus" alt="" srcset="">+</button>
            </div>  
-      <button class="cartButtonAdd">ADICIONAR <img src="./imagens/cartblue.svg" alt="cart" id="secondCart"></button>
+      <button class="cartButtonAdd">ADICIONAR <img src="/homepage//imagens/cartblue.svg" alt="cart" id="secondCart"></button>
     </div>
   </div>
 </article>`;
@@ -181,7 +181,6 @@ function makeItemSection(itemSection, index) {
       quantity = 0;
     }
     updateQuantity(itemSection, quantity);
-
   });
 }
 
