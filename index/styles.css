@@ -11,6 +11,11 @@ body {
   font-size: 20px;
   font-weight: 500;
 }
+
+.headers th{
+  padding:2rem;
+}
+  
 #navItems a {
   color: white;
 }

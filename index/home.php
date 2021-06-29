@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +30,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="/homepage/imagens/logo.svg" class="logo" alt="" srcset=""></a>
+        <a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt="" srcset=""></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -40,31 +39,20 @@
           <li><a href="#">Produtos <span class="sr-only"></span></a></li>
           <li><a href="#">Publicações</a></li>
           <li><a href="#">Contactos</a></li>
-          <li><a href="/Login/index.html">Login</a></li>
-
+          <li><a href="http://localhost/greenies/Login/login.php">Login</a></li>
+          <li><a href="/greenies/cart.php">Carrinho</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span
-                class="glyphicon glyphicon-shopping-cart"></span>Carrinho<span class="caret"></span></a>
-            <ul class="dropdown-menu dropdown-cart" role="menu">
-          </li>
-          <li class="divider"></li>
-          <div class="cartWrapper">
-          </div>
-        </ul>
-        </li>
-        </ul>
+        <div class="cartWrapper">
+        </div>
       </div>
   </nav>
-
   <main>
     <section class="intro">
       <div class="texto">
         <h1 class="frase">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</h1>
-        <button class="introBtn">Conheça os nossos produtos <img src="/homepage/imagens/seta.svg" alt=""></button>
+        <button class="introBtn">Conheça os nossos produtos <img src="http://localhost/greenies/imagens/seta.svg" alt=""></button>
       </div>
-      <img src="/homepage/imagens/pablo-healthy-life.png" class="img1" alt="ilustration">
+      <img src="http://localhost/greenies/imagens/pablo-healthy-life.png" class="img1" alt="ilustration">
     </section>
 
     <header class="list" id="promotions">As nossas promoções</header>
@@ -94,7 +82,7 @@
             </div>
             <form class="search-container">
               <input type="text" placeholder="Procurar..." name="search">
-              <img src="./imagens/lupa.svg" alt="search">
+              <img src="http://localhost/greenies/imagens/lupa.svg" alt="search">
             </form>
           </div>
         </div>
