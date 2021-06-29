@@ -1,3 +1,9 @@
+<?php
+require("../config.php");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,13 +45,27 @@
           <li><a href="#">Produtos <span class="sr-only"></span></a></li>
           <li><a href="#">Publicações</a></li>
           <li><a href="#">Contactos</a></li>
-          <li><a href="http://localhost/greenies/Login/login.php">Login</a></li>
-          <li><a href="/greenies/cart.php">Carrinho</a></li>
+<?php
+
+   if(isset($_SESSION["name"])){
+?>
+  <li><a href=""class="loggedUser"><?=$_SESSION["name"]?></a></li>
+  <li><a href="http://localhost/greenies/logout.php"class="logout">Logout</a></li>
+<?php
+  }else{
+?>
+  <li><a href="http://localhost/greenies/Login/login.php">Login</a></li>
+<?php
+  }
+?>
+      <li><a href="/greenies/cart.php">Carrinho</a></li>
         </ul>
         <div class="cartWrapper">
         </div>
       </div>
   </nav>
+  <p>
+  </p>
   <main>
     <section class="intro">
       <div class="texto">

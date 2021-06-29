@@ -6,7 +6,7 @@ if(isset($_POST["send"])){
 
 $query = $db->prepare("
 
-	Select user_id, user_type, password AS encrypted_password
+	Select user_id, name, user_type, password AS encrypted_password
 	FROM USERS
 	WHERE email = ?
 ");
@@ -23,12 +23,16 @@ $query->execute([
 	   ){
 
 		if($user["user_type"] === "admin") {
+			
+			$_SESSION["user_id"] = $user["user_id"];
+			$_SESSION["name"] = $user["name"];
 
 			header("Location:../admin.php");
-	
+			
 		} elseif ($user["user_type"] === "user") {
 
-			var_dump ($user["user_type"]);
+			$_SESSION["user_id"] = $user["user_id"];
+			$_SESSION["name"] = $user["name"];
 			header("Location: /greenies/index/");
 	}
 }

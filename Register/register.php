@@ -10,14 +10,16 @@
 				$query = $db->prepare("
 				
 				INSERT INTO USERS
-				(email, password)
-				VALUES (?,?)
+				(email, password, name)
+				VALUES (?,?,?)
 				");
 
 				$query->execute([
 					$_POST["email"],
-					password_hash($_POST["password"], PASSWORD_DEFAULT)
+					password_hash($_POST["password"], PASSWORD_DEFAULT),
+					$_POST["name"]
 				]);	
+
 				header("Location:http://localhost/greenies/Login/login.php");
 				
 			}
