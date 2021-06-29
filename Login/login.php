@@ -1,3 +1,38 @@
+<?php
+
+require("../config.php");
+
+$query = $db->prepare("
+
+	Select user_id, email, password, user_type
+	FROM USERS
+	WHERE email = ?
+");
+
+	$query->execute([
+		$_POST["email"]
+	]);
+
+	$user = $query->fetch();
+
+	if(!empty($user)){
+		$_SESSION["user_id"] = $user["user_id"];
+		$_SESSION["user_type"] = $user["user_type"];
+		
+		if($user["user_type"] === "admin") {
+			
+			header("Location:../admin.php");
+			
+		} elseif ($user["user_type"] === "user") {
+			
+			var_dump ($user["user_type"]);
+	}
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,20 +69,14 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
-					<!--<span class="login100-form-title p-b-26">
-						Welcome
-						To
-					</span>
-					!--->
+				<form method="POST" action="login.php" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
 						<a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
 								srcset=""></a>
 					</span>
-
 					<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
 						<input class="input100" type="text" name="email">
-						<span class="focus-input100" data-placeholder="Email"></span>
+						<span class="focus-input100" data-placeholder="email"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -57,21 +86,19 @@
 						<input class="input100" type="password" name="pass">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
-
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button type="submit" name="send" class="login100-form-btn">
 								Login
 							</button>
 						</div>
 					</div>
-
+					</form>
 					<div class="text-center p-t-115">
 						<span class="txt1">
 							Don’t have an account?
 						</span>
-
 						<a href="http://localhost/greenies/Register/Register.php" class="txt2" href="#">
 							Sign Up
 						</a>
@@ -80,7 +107,6 @@
 							Return home
 						</a>
 					</div>
-				</form>
 			</div>
 		</div>
 	</div>

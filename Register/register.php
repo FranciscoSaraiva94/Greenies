@@ -1,3 +1,35 @@
+<?php
+
+	require("../config.php");
+	if(isset($_POST["send"])) {
+		if(
+			filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) &&
+			$_POST["password"] === $_POST["password_repeat"] 
+
+		){
+				$query = $db->prepare("
+				
+				INSERT INTO USERS
+				(email, password)
+				VALUES (?,?)
+				");
+
+				$query->execute([
+					$_POST["email"],
+					$_POST["password"]
+				]);	
+
+				header("Location:http://localhost/greenies/Login/login.php");
+				
+			}
+			else{
+				echo "dados mal preenchidos";
+			}
+	}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,59 +66,68 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
-					<!--<span class="login100-form-title p-b-26">
-						Register
-					</span>!--->
+				<form method="POST" action="http://localhost/greenies/Register/Register.php"class= "login100-form validate-form">
 					<span class="login100-form-title p-b-48">
-						<a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
-								srcset=""></a>
+						<img src="http://localhost/greenies/imagens/logo.svg"></a>
 					</span>
-					<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
-						<span class="focus-input100" data-placeholder="Email"></span>
-					</div>
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="morada">
+						<label class="wrap-input100 validate-input">
+							<input class="input100" type="text" name="name" required>
+							<span class="focus-input100" data-placeholder="Nome"></span>
+					</label>
+					</span>
+						<label class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+							<input class="input100" type="email" name="email" required>
+							<span class="focus-input100" data-placeholder="Email"></span>
+					</label>
+					<label class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="morada" required>
 						<span class="focus-input100" data-placeholder="Address"></span>
-					</div>
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="postal_code">
+					</label>
+					<label class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="postal_code" required>
 						<span class="focus-input100" data-placeholder="Postal_code"></span>
-					</div>
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="phone">
+					</label>
+					<label class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="phone" required>
 						<span class="focus-input100" data-placeholder="Phone"></span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
+					</label>
+					<label class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="City" required>
+						<span class="focus-input100" data-placeholder="City"></span>
+					</label>
+					<label class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="Country" required>
+						<span class="focus-input100" data-placeholder="Country"></span>
+					</label>
+					<label class="wrap-input100 validate-input" data-validate="Enter password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" required name="password">
 						<span class="focus-input100" data-placeholder="Password"></span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
+					</label>
+					<label class="wrap-input100 validate-input" data-validate="Enter password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" required name="password_repeat">
 						<span class="focus-input100" data-placeholder="Repeat password"></span>
-					</div>
+					</label>
 					<input type="text">
-					<div class="container-login100-form-btn">
+					<label class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button type="submit" name="send" class="login100-form-btn">
 								Register
 							</button>
-						</div>
+						</label>
 					</div>
-					<br>
+					</form>
+
 					<div class="text-center p-t-115">
 						<span class="txt1">
 							Already Have an account?
 						</span>
-
 						<a href="http://localhost/greenies/Login/login.php" class="txt2" href="#">
 							Login
 						</a>
@@ -95,7 +136,6 @@
 							Return home
 						</a>
 					</div>
-				</form>
 			</div>
 		</div>
 	</div>
