@@ -2,31 +2,36 @@
 
 require("../config.php");
 
+if(isset($_POST["send"])){
+
 $query = $db->prepare("
 
-	Select user_id, email, password, user_type
+	Select user_id, user_type, password AS encrypted_password
 	FROM USERS
 	WHERE email = ?
 ");
 
-	$query->execute([
-		$_POST["email"]
-	]);
+$query->execute([
+	$_POST["email"]
+]);
 
 	$user = $query->fetch();
 
-	if(!empty($user)){
-		$_SESSION["user_id"] = $user["user_id"];
-		$_SESSION["user_type"] = $user["user_type"];
-		
+	if(!empty($user) && 
+	   password_verify($_POST["password"], $user["encrypted_password"])
+
+	   ){
+
 		if($user["user_type"] === "admin") {
-			
+
 			header("Location:../admin.php");
-			
+	
 		} elseif ($user["user_type"] === "user") {
-			
+
 			var_dump ($user["user_type"]);
+			header("Location: /greenies/index/");
 	}
+}
 }
 
 ?>
@@ -83,7 +88,7 @@ $query = $db->prepare("
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="password">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 					<div class="container-login100-form-btn">

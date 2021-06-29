@@ -4,7 +4,7 @@
 	if(isset($_POST["send"])) {
 		if(
 			filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) &&
-			$_POST["password"] === $_POST["password_repeat"] 
+			$_POST["password"] === $_POST["repeat_password"] 
 
 		){
 				$query = $db->prepare("
@@ -16,9 +16,8 @@
 
 				$query->execute([
 					$_POST["email"],
-					$_POST["password"]
+					password_hash($_POST["password"], PASSWORD_DEFAULT)
 				]);	
-
 				header("Location:http://localhost/greenies/Login/login.php");
 				
 			}
@@ -110,7 +109,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" required name="password_repeat">
+						<input class="input100" type="password" required name="repeat_password">
 						<span class="focus-input100" data-placeholder="Repeat password"></span>
 					</label>
 					<input type="text">
