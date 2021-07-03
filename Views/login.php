@@ -1,44 +1,3 @@
-<?php
-
-require("./config.php");
-
-if(isset($_POST["send"])){
-
-$query = $db->prepare("
-
-	Select user_id, name, user_type, password AS encrypted_password
-	FROM USERS
-	WHERE email = ?
-");
-
-$query->execute([
-	$_POST["email"]
-]);
-
-	$user = $query->fetch();
-
-	if(!empty($user) && 
-	   password_verify($_POST["password"], $user["encrypted_password"])
-
-	   ){
-
-		if($user["user_type"] === "admin") {
-			$_SESSION["user_type"] = $user["user_type"];
-			$_SESSION["user_id"] = $user["user_id"];
-			$_SESSION["name"] = $user["name"]. ' (admin)';
-
-			header("Location: ./admin.php");
-			
-		} elseif ($user["user_type"] === "user") {
-			$_SESSION["user_type"] = $user["user_type"];
-			$_SESSION["user_id"] = $user["user_id"];
-			$_SESSION["name"] = $user["name"];
-			header("Location: ./");
-	}
-}
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +35,7 @@ $query->execute([
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form method="POST" action="login.php" class="login100-form validate-form">
+				<form method="POST" action="?controller=access&action=login" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
 						<a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
 								srcset=""></a>
@@ -106,7 +65,7 @@ $query->execute([
 						<span class="txt1">
 							Don’t have an account?
 						</span>
-						<a href="./Register.php" class="txt2" href="#">
+						<a href="?controller=access&action=register" class="txt2" href="#">
 							Sign Up
 						</a>
 						<br>

@@ -1,8 +1,3 @@
-<?php
-require("./config.php");
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,26 +47,24 @@ require("./config.php");
   <li>
     <a href=""class="loggedUser"><?=$_SESSION["name"]?></a>
   </li>
-    <li><a href="./logout.php"class="logout">Logout</a>
+    <li><a href="?controller=logout"class="logout">Logout</a>
   </li>
   <?php
       if ($_SESSION["user_type"] === "admin")
       {
 ?>
-        <li><a href="./admin.php"class="admin">AdminZone</a></li>
+        <li><a href="?controller=admin"class="admin">AdminZone</a></li>
 <?php
     }
 ?>
 <?php
   }else{
 ?>
-   <li><a href="./login.php">Login</a></li>
+   <li><a href="?controller=access&action=login">Login</a></li>
 <?php
   }
 ?>
-
-
-      <li><a href="./cart.php">Carrinho</a></li>
+     <li><a href="?controller=cart">Carrinho</a></li>
         </ul>
         <div class="cartWrapper">
         </div>

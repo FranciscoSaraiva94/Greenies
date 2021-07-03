@@ -1,13 +1,3 @@
-<?php
-
-    require("./config.php");
-    echo"admin to rule em all";
-
-    echo '<pre>';
-    print_r($_SESSION);
-    echo '</pre>';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="./">Home</a>
+    <a href="?controller=home">Home</a>
 </body>
 </html>

@@ -1,36 +1,3 @@
-<?php
-
-	require("./config.php");
-	if(isset($_POST["send"])) {
-		if(
-			filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) &&
-			$_POST["password"] === $_POST["repeat_password"] 
-
-		){
-				$query = $db->prepare("
-				
-				INSERT INTO USERS
-				(email, password, name)
-				VALUES (?,?,?)
-				");
-
-				$query->execute([
-					$_POST["email"],
-					password_hash($_POST["password"], PASSWORD_DEFAULT),
-					$_POST["name"]
-				]);	
-
-				header("Location:http://localhost/greenies/Login/login.php");
-				
-			}
-			else{
-				echo "dados mal preenchidos";
-			}
-	}
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +34,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form method="POST" action="http://localhost/greenies/Register/Register.php"class= "login100-form validate-form">
+				<form method="POST" action="?controller=access&action=register"class= "login100-form validate-form">
 					<span class="login100-form-title p-b-48">
 						<img src="http://localhost/greenies/imagens/logo.svg"></a>
 					</span>
@@ -129,11 +96,11 @@
 						<span class="txt1">
 							Already Have an account?
 						</span>
-						<a href="./login.php" class="txt2" href="#">
+						<a href="?controller=access&action=login" class="txt2" href="#">
 							Login
 						</a>
 						<br>
-						<a href="./" class="txt2" href="#">
+						<a href="?controller=home.php" class="txt2" href="#">
 							Return home
 						</a>
 					</div>
