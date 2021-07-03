@@ -1,17 +1,12 @@
 <?php
+require("models/products.php");
 
-require("models/base.php");
-
+$productsModel = new Products();
 
 if($_SESSION["user_type"] === "user"){
     header("Location: ./");
     exit;
 }
+require("views/admin.php");
 
-    echo "admin to rule em all";
-
-    echo '<pre>';
-    print_r($_SESSION);
-    echo '</pre>';
-
-    require("views/admin.php");
+?>

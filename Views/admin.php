@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="?controller=home">Home</a>
+    <nav>
+        <li><a href="?controller=addProducts">Add Products</a></li>
+        <li><a href="?controller=deleteProducts">Remover produtos</a></li>
+        <li><a href="?controller=updateProducts">Update Products</a></li>
+        <li><a href="?controller=seeProducts">See current Products</a></li>
+    </nav>
+
+    <li><a href="./">Regressar à pagina principal</a></li>
 </body>
 </html>
