@@ -1,6 +1,6 @@
 <?php
 
-require("../config.php");
+require("./config.php");
 
 if(isset($_POST["send"])){
 
@@ -23,24 +23,22 @@ $query->execute([
 	   ){
 
 		if($user["user_type"] === "admin") {
-			
+			$_SESSION["user_type"] = $user["user_type"];
 			$_SESSION["user_id"] = $user["user_id"];
-			$_SESSION["name"] = $user["name"];
+			$_SESSION["name"] = $user["name"]. ' (admin)';
 
-			header("Location:../admin.php");
+			header("Location: ./admin.php");
 			
 		} elseif ($user["user_type"] === "user") {
-
+			$_SESSION["user_type"] = $user["user_type"];
 			$_SESSION["user_id"] = $user["user_id"];
 			$_SESSION["name"] = $user["name"];
-			header("Location: /greenies/index/");
+			header("Location: ./");
 	}
 }
 }
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,24 +50,24 @@ $query->execute([
 	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="loginFiles/vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="loginFiles/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="loginFiles/fonts/iconic/css/material-design-iconic-font.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="loginFiles/vendor/animate/animate.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="loginFiles/vendor/css-hamburgers/hamburgers.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="loginFiles/vendor/animsition/css/animsition.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="loginFiles/vendor/select2/select2.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="loginFiles/vendor/daterangepicker/daterangepicker.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="loginFiles/css/util.css">
+	<link rel="stylesheet" type="text/css" href="loginFiles/css/main.css">
 	<!--===============================================================================================-->
 </head>
 
@@ -108,11 +106,11 @@ $query->execute([
 						<span class="txt1">
 							Don’t have an account?
 						</span>
-						<a href="http://localhost/greenies/Register/Register.php" class="txt2" href="#">
+						<a href="./Register.php" class="txt2" href="#">
 							Sign Up
 						</a>
 						<br>
-						<a href="/greenies/index/" class="txt2" href="#">
+						<a href="./" class="txt2" href="#">
 							Return home
 						</a>
 					</div>
@@ -124,21 +122,21 @@ $query->execute([
 	<div id="dropDownSelect1"></div>
 
 	<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="loginFiles/vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="loginFiles/vendor/animsition/js/animsition.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="loginFiles/vendor/bootstrap/js/popper.js"></script>
+	<script src="loginFiles/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
+	<script src="loginFiles/vendor/select2/select2.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="loginFiles/vendor/daterangepicker/moment.min.js"></script>
+	<script src="loginFiles/vendor/daterangepicker/daterangepicker.js"></script>
 	<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script src="loginFiles/vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="loginFiles/js/main.js"></script>
 
 </body>
 

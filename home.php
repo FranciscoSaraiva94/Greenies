@@ -1,5 +1,5 @@
 <?php
-require("../config.php");
+require("./config.php");
 
 ?>
 
@@ -11,7 +11,7 @@ require("../config.php");
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Greenies</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="homeFiles/styles.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -45,20 +45,33 @@ require("../config.php");
           <li><a href="#">Produtos <span class="sr-only"></span></a></li>
           <li><a href="#">Publicações</a></li>
           <li><a href="#">Contactos</a></li>
-<?php
 
+<?php
    if(isset($_SESSION["name"])){
 ?>
-  <li><a href=""class="loggedUser"><?=$_SESSION["name"]?></a></li>
-  <li><a href="http://localhost/greenies/logout.php"class="logout">Logout</a></li>
+  <li>
+    <a href=""class="loggedUser"><?=$_SESSION["name"]?></a>
+  </li>
+    <li><a href="./logout.php"class="logout">Logout</a>
+  </li>
+  <?php
+      if ($_SESSION["user_type"] === "admin")
+      {
+?>
+        <li><a href="./admin.php"class="admin">AdminZone</a></li>
+<?php
+    }
+?>
 <?php
   }else{
 ?>
-  <li><a href="http://localhost/greenies/Login/login.php">Login</a></li>
+   <li><a href="./login.php">Login</a></li>
 <?php
   }
 ?>
-      <li><a href="/greenies/cart.php">Carrinho</a></li>
+
+
+      <li><a href="./cart.php">Carrinho</a></li>
         </ul>
         <div class="cartWrapper">
         </div>
@@ -132,7 +145,7 @@ require("../config.php");
   </div>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <script src="script.js"></script>
+  <script src="homeFiles/script.js"></script>
 </body>
 
 </html>

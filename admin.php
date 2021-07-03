@@ -17,6 +17,6 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="http://localhost/greenies/index/">Home</a>
+    <a href="./">Home</a>
 </body>
 </html>
