@@ -38,6 +38,7 @@ class Products extends Base {
     }
 
     public function updateProducts($data){
+        
         $query = $this->db->prepare("
             UPDATE PRODUCTS
             SET stock = ".$data["stock"].", price = ".$data["price"]."
@@ -50,5 +51,20 @@ class Products extends Base {
         ]);
 
         return $query->fetch(PDO:: FETCH_ASSOC);
+    }
+
+    public function seeProducts(){
+
+        $query = $this->db->prepare("
+        SELECT product_id, name, price, stock, photo
+        FROM PRODUCTS
+
+    ");
+
+        $query->execute([
+
+        ]);
+
+        return $products = $query->fetchAll(PDO:: FETCH_ASSOC);
     }
 }
