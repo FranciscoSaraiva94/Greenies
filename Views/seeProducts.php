@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>See products</title>
     <link rel="stylesheet" href="./extraCss/styles.css">
+    <link rel="stylesheet" href="./homeFiles/styles.css">
 </head>
 <body>
 

@@ -6,7 +6,7 @@ $productsModel = new Products();
 
     if(isset($_POST["send"])){
         $product = $productsModel->updateProducts($_POST);   
-        $message = 'O produto com o id '.$_POST["product_id"].' e com o nome ' .$_POST["name"].' foi alterado com sucesso';
+        $message = 'The product with the id '.$_POST["product_id"].' and with the name of ' .$_POST["name"].' was updated successfully';
     }   
 
     require("views/updateProducts.php");

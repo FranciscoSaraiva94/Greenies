@@ -2,7 +2,7 @@
 
 require("models/products.php");
 
-$productsModel = new Products();
+    $productsModel = new Products();
 
     if(isset($_POST["send"])){
         $product = $productsModel->deleteProduct($_POST);   

@@ -406,11 +406,6 @@ iframe {
 /*------------------------------------------------------------------
 [ Responsive ]*/
 
-@media (max-width: 576px) {
-  .wrap-login100 {
-    padding: 77px 15px 33px 15px;
-  }
-}
 
 
 
@@ -474,13 +469,6 @@ iframe {
 .alert-validate:hover:before {
   visibility: visible;
   opacity: 1;
-}
-
-@media (max-width: 992px) {
-  .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
-  }
 }
 
 
