@@ -7,7 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-<form action="?controller=admin" method="post">
+<form action="?controller=deleteProducts" method="post">
+
+<?php
+if(isset($message)){
+    echo $message;
+}
+?>
                 <div>
                      <label>
                         Name of the product to remove
@@ -17,7 +23,7 @@
                 <div>
                      <label>
                         ID of the product to remove
-                        <input type="text" name="name" id="">
+                        <input type="text" name="product_id" id="">
                     </label>
                 </div>
                 <div>

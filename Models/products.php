@@ -23,4 +23,32 @@ class Products extends Base {
 
     }
 
+    public function deleteProduct($data){
+        $query = $this->db->prepare("
+            DELETE FROM PRODUCTS
+            WHERE product_id = ? AND name = ?
+        ");
+
+        $query->execute([
+            $data["product_id"],
+            $data["name"]
+          ]);
+
+          return $query->fetch(PDO:: FETCH_ASSOC);
+    }
+
+    public function updateProducts($data){
+        $query = $this->db->prepare("
+            UPDATE PRODUCTS
+            SET stock = ".$data["stock"].", price = ".$data["price"]."
+            WHERE product_id = ? AND name = ?
+        ");
+
+        $query->execute([
+            $data["product_id"],
+            $data["name"]
+        ]);
+
+        return $query->fetch(PDO:: FETCH_ASSOC);
+    }
 }
