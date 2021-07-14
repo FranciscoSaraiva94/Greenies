@@ -67,4 +67,19 @@ class Products extends Base {
 
         return $products = $query->fetchAll(PDO:: FETCH_ASSOC);
     }
+
+    public function cartProducts($data){
+        $query = $this->db->prepare("
+        SELECT product_id, name, price, stock, photo
+        FROM PRODUCTS
+        WHERE product_id = ? AND stock >= ?
+        ");
+        
+        $query->execute([
+            $data["product_id"],
+            $data["quantity"]
+        ]);
+
+        return $product = $query->fetch(PDO:: FETCH_ASSOC);
+    }
 }

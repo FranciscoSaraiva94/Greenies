@@ -31,13 +31,13 @@ if(isset($_POST["send"])) {
             $product = $productsModel->createProduct($_POST, $fileDestination);
                $message = 'O produto '.$_POST["name"]. " foi adicionado corretamente";
             }else{
-                echo 'file is too big';
+                $message ='file is too big';
             }
         }else{
-            echo 'there was an error';
+            $message = 'there was an error';
         }
     }else{
-        echo 'you cannot upload files of this type';
+        $message = 'you cannot upload files of this type';
     }
 }
 require("views/addProducts.php");

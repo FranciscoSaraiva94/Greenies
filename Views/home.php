@@ -42,15 +42,16 @@
           <li><a href="#">Contactos</a></li>
 
 <?php
-   if(isset($_SESSION["name"])){
+   if(isset($_SESSION["name"])) {
+ 
 ?>
   <li>
     <a href=""class="loggedUser"><?=$_SESSION["name"]?></a>
   </li>
     <li><a href="?controller=logout"class="logout">Logout</a>
   </li>
-  <?php
-      if ($_SESSION["user_type"] === "admin")
+<?php
+   if ($_SESSION["user_type"] === "admin")
       {
 ?>
         <li><a href="?controller=admin"class="admin">AdminZone</a></li>
@@ -81,6 +82,7 @@
       <img src="http://localhost/greenies/imagens/pablo-healthy-life.png" class="img1" alt="ilustration">
     </section>
 
+  <!--
     <header class="list" id="promotions">As nossas promoções</header>
     <div class="carousel">
       <section class="main-carousel">
@@ -95,7 +97,7 @@
         </div>
       </section>
     </div>
-
+-->
     <div class="grid-mobile">
       <header class="list">Os nossos produtos</header>
       <section class="loja">
@@ -114,7 +116,40 @@
         </div>
     </div>
     <div class="itemSection">
-      <!--   <article class="menu-item">
+
+<?php
+
+  foreach($products as $product){
+    echo 
+    '<article class="menu-item">
+            <img class="photo" src="'.$product["photo"].'">
+            <div class="itemInfo">
+            <h4 class="nomeDoProduto">'.$product["name"].'</h4>
+            <h4 class="precoDoProduto">'.$product["price"].'€/kg</h4>
+      <form method="post" action="?controller=cart">
+          <label>
+            <input type="number" class="value" value = "1" min="1" max="'.$product["stock"].'" name="quantity">
+            <input type="hidden" name="product_id" value="'.$product["product_id"].'">
+            <input type="hidden" name="product_name" value="'.$product["name"].'">
+            <input type="hidden" name="price" value="'.$product["price"].'">
+            <button name="send" class="cartButtonAdd">ADICIONAR <img src="imagens/cartblue.svg" alt="cart" id="secondCart"></button>
+          </label>
+        </form>
+    </article>      
+    ';
+  }
+?>
+
+<!--
+<div class="cartButtons">
+      <div class="minusAndAdd">
+        <button type="button" class="cartButtonMinus">-</button>
+        <h5 class="itemQuantity">0</h5>
+        <button type="button" class="cartButtonPlus" id="add" alt="" srcset="">+</button>
+      </div>
+  -->
+</div>
+      <!--<article class="menu-item">
           <img src="./imagens/alface.jpg" alt="menu item" class="photo"/>
           <div class="itemInfo">
               <h4 class="nomeDoProduto">Alface</h4>
@@ -138,7 +173,7 @@
   </div>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <script src="homeFiles/script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

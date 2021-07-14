@@ -131,18 +131,18 @@ function showGroceryitems(groceryItems) {
   let groceryList = groceryItems.map(function (element) {
     return `<article class="menu-item" data-id="${element.id}">
   <img src=${element.img} alt=${element.nome} class="photo" />
-  <div class="itemInfo">
-      <h4 class="nomeDoProduto">${element.nome}</h4>
-      <h4 class="precoDoProduto">${element.preco}€/kg</h4>
-       <div class="cartButtons">
-           <div class="minusAndAdd">
-                <button class="cartButtonMinus" alt="" srcset="">-</button>
-                <h5 class="itemQuantity">${element.quantity}</h5>
-                <button class="cartButtonPlus" alt="" srcset="">+</button>
-           </div>  
-      <button class="cartButtonAdd">ADICIONAR <img src="http://localhost/greenies/imagens/cartblue.svg" alt="cart" id="secondCart"></button>
+    <div class="itemInfo">
+        <h4 class="nomeDoProduto">${element.nome}</h4>
+        <h4 class="precoDoProduto">${element.preco}€/kg</h4>
+        <div class="cartButtons">
+            <div class="minusAndAdd">
+                  <button class="cartButtonMinus" alt="" srcset="">-</button>
+                  <h5 class="itemQuantity">${element.quantity}</h5>
+                  <button class="cartButtonPlus" alt="" srcset="">+</button>
+            </div>
+        <button class="cartButtonAdd">ADICIONAR <img src="http://localhost/greenies/imagens/cartblue.svg" alt="cart" id="secondCart"></button>
+      </div>
     </div>
-  </div>
 </article>`;
   });
 
@@ -213,7 +213,7 @@ function renderCart() {
         <span class="item-info">
             <span>${element.nome}</span>
             <span>${element.quantity}Kg</span>
-            <span>${custo}€</span>   
+            <span>${custo}€</span>
         </span>
     </span>
     <span class="xButton">
@@ -252,3 +252,4 @@ function renderCart() {
     // prevNextButtons: false
   });
 })(jQuery);
+/*
