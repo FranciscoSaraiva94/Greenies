@@ -1,7 +1,6 @@
 <?php
 
 require("models/products.php");
-require("views/cart.php");
 $productsModel = new Products();
 
 
@@ -28,6 +27,6 @@ if(isset($_POST["send"])){
         header("Location: ?controller=cart");
     }
 }
-
+require("views/cart.php");
 
 ?>

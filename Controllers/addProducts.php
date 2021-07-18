@@ -10,6 +10,7 @@ if($_SESSION["user_type"] === "user"){
 }
 
 if(isset($_POST["send"])) {
+    print_r($_POST);
     $file = $_FILES["file"];
     $fileName = $file["name"];
     $fileTmpName = $file["tmp_name"];
@@ -29,6 +30,8 @@ if(isset($_POST["send"])) {
                move_uploaded_file($fileTmpName, $fileDestination);
 
             $product = $productsModel->createProduct($_POST, $fileDestination);
+
+
                $message = 'O produto '.$_POST["name"]. " foi adicionado corretamente";
             }else{
                 $message ='file is too big';

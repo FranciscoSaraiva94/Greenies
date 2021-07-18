@@ -82,10 +82,12 @@
 						<span class="txt1">
 						</span>
 <?php
-    if(isset($message)){
-        echo '<h5 role="alert">'.$message.'</h5>';
-    }
-?>
+ if(isset($message)){
+		echo '<p role="alert" style="color:red;">';
+		echo $message;
+		echo '<p>';
+	}
+?>	
 						<a href="?controller=admin" class="txt2" href="#">
 							Return to admnistration area
 						</a>

@@ -79,4 +79,17 @@ class Products extends Base {
 
         return $product = $query->fetch(PDO:: FETCH_ASSOC);
     }
+    public function updateQuantities($data){
+        $query = $this->db->prepare("
+        SELECT product_id
+        FROM PRODUCTS
+        WHERE product_id = ?  And stock >= ?
+         ");
+
+        $query->execute([
+            $_POST["product_id"],
+            $_POST["quantity"]
+        ]);
+        return $products = $query->fetch(PDO:: FETCH_ASSOC);
+    }
 }

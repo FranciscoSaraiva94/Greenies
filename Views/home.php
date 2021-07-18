@@ -171,9 +171,8 @@
   <div class="footer">
     <p>Todos os direitos reservados © Greenies 2021</p>
   </div>
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</body>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="script.js"></script>
-</body>
-
 </html>
