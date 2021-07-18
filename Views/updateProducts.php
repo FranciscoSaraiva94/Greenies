@@ -45,13 +45,15 @@
                 <!-- <a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
 								srcset=""></a> -->
 					</span>
+					Product to Update
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="name">
-						<span class="focus-input100" data-placeholder=" Product to update"></span>
-					</div>
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="product_id">
-						<span class="focus-input100" data-placeholder="Id of the product to update:"></span>
+						<select name="product_name">
+	<?php
+		foreach($products as $product){
+			echo '<option>' .$product["name"]. '</option>';
+		}
+	?>
+						</select>
 					</div>
                     <div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="stock" id="">
@@ -71,11 +73,12 @@
 						<span class="txt1">
 						</span>
 <?php
-    if(isset($message)){
-        echo '<h5 role="alert">'.$message.'</h5>';
-    }
-?>
-						<a href="?controller=admin" class="txt2" href="#">
+ if(isset($message)){
+		echo '<p role="alert" style="color:red;">';
+		echo $message;
+		echo '<p>';
+	}
+?>						<a href="?controller=admin" class="txt2" href="#">
 							Return to admnistration area
 						</a>
 						<br>

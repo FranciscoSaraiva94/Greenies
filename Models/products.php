@@ -26,12 +26,10 @@ class Products extends Base {
     public function deleteProduct($data){
         $query = $this->db->prepare("
             DELETE FROM PRODUCTS
-            WHERE product_id = ? AND name = ?
+            WHERE name = ?
         ");
-
         $query->execute([
-            $data["product_id"],
-            $data["name"]
+            $data["product_name"]
           ]);
 
           return $query->fetch(PDO:: FETCH_ASSOC);
@@ -42,12 +40,11 @@ class Products extends Base {
         $query = $this->db->prepare("
             UPDATE PRODUCTS
             SET stock = ".$data["stock"].", price = ".$data["price"]."
-            WHERE product_id = ? AND name = ?
+            WHERE name = ?
         ");
 
         $query->execute([
-            $data["product_id"],
-            $data["name"]
+            $data["product_name"]
         ]);
 
         return $query->fetch(PDO:: FETCH_ASSOC);

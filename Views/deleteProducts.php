@@ -27,9 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="loginFiles/css/main.css">
 </head>
 <body>
-<form action="?controller=deleteProducts" method="post">
-
-
+<form action="?controller=deleteProducts" method="post">	
            <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -39,19 +37,20 @@
                 <!-- <a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
 								srcset=""></a> -->
 					</span>
-                    
+					Product to Remove
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="name" id="">
-						<span class="focus-input100" data-placeholder="Product to remove"></span>
-					</div>
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="product_id">
-						<span class="focus-input100" data-placeholder="ID of the product to remove"></span>
+						<select name="product_name">
+	<?php
+		foreach($products as $product){
+			echo '<option>' .$product["name"]. '</option>';
+		}
+	?>
+						</select>
 					</div>
                     <div>
                      <label>
                         Reason to remove
-                        <select name="category"class="wrap-input100 validate-input">
+                        <select name="reason"class="wrap-input100 validate-input">
                             <option class="focus-input100">No stock</option>
                             <option class="focus-input100">dislike Vegetables</option>
                         </select>
@@ -68,7 +67,9 @@
 						</span>
 <?php
         if(isset($message)){
+			echo '<p role="alert" style="color:red;">';
             echo $message;
+			echo '<p>';
 }
 ?>
         					<a href="?controller=admin" class="txt2" href="#">

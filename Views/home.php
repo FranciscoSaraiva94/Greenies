@@ -40,7 +40,7 @@
           <li><a href="#">Produtos <span class="sr-only"></span></a></li>
           <li><a href="#">Publicações</a></li>
           <li><a href="#">Contactos</a></li>
-
+  
 <?php
    if(isset($_SESSION["name"])) {
  
