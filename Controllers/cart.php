@@ -4,6 +4,7 @@ require("models/products.php");
 $productsModel = new Products();
 
 
+
 if(isset($_POST["send"])){
 
     if(
@@ -13,15 +14,16 @@ if(isset($_POST["send"])){
         is_numeric($_POST["product_id"])&&   
         $_POST["quantity"] >= 1 
     ){
+      
         $product = $productsModel->cartProducts($_POST);
-        
+        print_r($product);
         if(!empty($product)){
             $_SESSION["cart"][$product["product_id"] ]= [
-                "quantity"   => (int)$_POST["quantity"],
-                "name"       => $product["name"],
-                "product_id" => $product["product_id"],
-                "price"      => $product["price"],
-                "stock"      => $product["stock"]
+                "quantity"      => (int)$_POST["quantity"],
+                "name"          => $product["name"],
+                "product_id"    => $product["product_id"],
+                "price"         => $product["price"],
+                "stock"         => $product["stock"]
             ];
         }
         header("Location: ?controller=cart");

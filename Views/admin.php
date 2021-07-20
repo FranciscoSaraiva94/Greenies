@@ -60,6 +60,7 @@
                             <li><a href="?controller=deleteProducts">Delete products</a></li>
                             <li><a href="?controller=updateProducts">Update Products</a></li>
                             <li><a href="?controller=seeProducts">See current Products</a></li>
+							<li><a href="?controller=promotions">Promote Products</a></li>
                             <li><a href="./">Return to the main page</a></li>
                      </ul>
             </article>

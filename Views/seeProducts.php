@@ -25,6 +25,7 @@
     </thead>
 
 <?php
+
     foreach($products as $product){
         echo '<tr class="allitems">'.
              '<th>' .$product["name"].         '</th>'.

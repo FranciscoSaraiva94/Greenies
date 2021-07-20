@@ -5,7 +5,7 @@ session_start();
 $controller = "home";
 
 /* white list de controladores válidos */
-$valid_controllers = ["cart", "requests", "home", "access", "cart", "admin", "logout", "addProducts", "deleteProducts", "updateProducts", "seeProducts"];
+$valid_controllers = ["cart", "promotions", "requests", "home", "access", "cart", "admin", "logout", "addProducts", "deleteProducts", "updateProducts", "seeProducts"];
 
 
 if(

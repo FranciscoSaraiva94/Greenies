@@ -65,10 +65,8 @@
 <?php
   }
 ?>
-     <li><a href="?controller=cart">Carrinho</a></li>
+     <li class="carrinho"><a href="?controller=cart"><img src="imagens/cartblack.svg">(<?=$cart_items?>)</a></li>
         </ul>
-        <div class="cartWrapper">
-        </div>
       </div>
   </nav>
   <p>
@@ -119,13 +117,18 @@
 
 <?php
 
+
   foreach($products as $product){
+
+
+
     echo 
     '<article class="menu-item">
             <img class="photo" src="'.$product["photo"].'">
             <div class="itemInfo">
             <h4 class="nomeDoProduto">'.$product["name"].'</h4>
-            <h4 class="precoDoProduto">'.$product["price"].'€/kg</h4>
+            <h4 class="precoDoProduto">'.$product["price"].'€/kg
+            </h4>
       <form method="post" action="?controller=cart">
           <label>
             <input type="number" class="value" value = "1" min="1" max="'.$product["stock"].'" name="quantity">

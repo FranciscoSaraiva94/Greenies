@@ -10,7 +10,6 @@ if($_SESSION["user_type"] === "user"){
 }
 
 if(isset($_POST["send"])) {
-    print_r($_POST);
     $file = $_FILES["file"];
     $fileName = $file["name"];
     $fileTmpName = $file["tmp_name"];
@@ -26,13 +25,14 @@ if(isset($_POST["send"])) {
         if($fileError === 0){
             if($fileSize < 5000000) {
                $fileNameNew = uniqid('', true).".".$fileActualExt;
-               $fileDestination = './imagens/'.$fileNameNew;
+                $fileDestination = './imagens/'.$fileNameNew;
                move_uploaded_file($fileTmpName, $fileDestination);
+            
+                print_r($fileDestination);
+                print_r($_POST);
+                $product = $productsModel->createProduct($_POST, $fileDestination);
 
-            $product = $productsModel->createProduct($_POST, $fileDestination);
-
-
-               $message = 'O produto '.$_POST["name"]. " foi adicionado corretamente";
+                $message = 'O produto '.$_POST["name"]. " foi adicionado corretamente";
             }else{
                 $message ='file is too big';
             }
@@ -43,5 +43,6 @@ if(isset($_POST["send"])) {
         $message = 'you cannot upload files of this type';
     }
 }
+
 require("views/addProducts.php");
 

@@ -18,7 +18,6 @@ class Products extends Base {
             $data["category"],
             $data["stock"]
           ]);
-
           return $query->fetch(PDO:: FETCH_ASSOC);
 
     }
@@ -35,11 +34,11 @@ class Products extends Base {
           return $query->fetch(PDO:: FETCH_ASSOC);
     }
 
-    public function updateProducts($data){
+    public function updateProducts($data, $file){
         
         $query = $this->db->prepare("
             UPDATE PRODUCTS
-            SET stock = ".$data["stock"].", price = ".$data["price"]."
+            SET stock = ".$data["stock"].", photo = '$file', price = ".$data["price"]."
             WHERE name = ?
         ");
 
@@ -50,12 +49,26 @@ class Products extends Base {
         return $query->fetch(PDO:: FETCH_ASSOC);
     }
 
+public function noImageUpdate($data){
+        
+    $query = $this->db->prepare("
+        UPDATE PRODUCTS
+        SET stock = ".$data["stock"].", price = ".$data["price"]."
+        WHERE name = ?
+    ");
+
+    $query->execute([
+        $data["product_name"]
+    ]);
+
+    return $query->fetch(PDO:: FETCH_ASSOC);
+}
+
     public function seeProducts(){
 
         $query = $this->db->prepare("
         SELECT product_id, name, price, stock, photo
         FROM PRODUCTS
-
     ");
 
         $query->execute([
@@ -63,6 +76,21 @@ class Products extends Base {
         ]);
 
         return $products = $query->fetchAll(PDO:: FETCH_ASSOC);
+    }
+
+    public function seeProduct($data){
+
+        $query = $this->db->prepare("
+        SELECT product_id, name, price, stock, photo
+        FROM PRODUCTS
+        WHERE name = ?
+        
+    ");
+        $query->execute([
+            $data["product_name"]
+        ]);
+
+        return $query->fetch(PDO:: FETCH_ASSOC);
     }
 
     public function cartProducts($data){

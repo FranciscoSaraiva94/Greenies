@@ -31,17 +31,19 @@
     <title>Update Products</title>
 </head>
 <style>
-
-
-</style>
+        .file{
+        position:relative;
+        font-size:13px;
+        }
+    </style>
 <body>
 
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form method="POST" action="?controller=updateProducts" class="login100-form validate-form">
+				<form method="POST" action="?controller=updateProducts" enctype="multipart/form-data" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
-                    <h2> Update Products</h2>
+                    <h2> Update Products </h2>
                 <!-- <a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
 								srcset=""></a> -->
 					</span>
@@ -63,6 +65,10 @@
 						<input class="input100" type="text" name="price" id="">
 						<span class="focus-input100" data-placeholder="New Price"></span>
 					</div>
+                        New photo
+                    <div>
+                        <input type="file" class="file" name="file">
+                    </div>
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>

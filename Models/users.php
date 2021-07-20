@@ -17,7 +17,7 @@ class Users extends Base {
 
         print_r($data);
 
-        return $query->fetch(PDO:: FETCH_ASSOC);
+       return $query->fetch(PDO:: FETCH_ASSOC);
     }  
 
   public function createUser($data){

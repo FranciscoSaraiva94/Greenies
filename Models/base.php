@@ -3,6 +3,7 @@
 
 class Base {
 
+
     public $db;
     
     public function __CONSTRUCT() {

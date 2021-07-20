@@ -88,13 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
 </head>
 <body>
 <?php
-
-if(empty($_SESSION["cart"])){
-    echo 'por favor selecione alguns produtos';
-}
-    else if(!empty($_SESSION["cart"])){
+    if(!empty($_SESSION["cart"])){
 ?>
-<table class="table table bordered">
+<table class="table table bordered"
     <thead>
         <tr>
             <th width="20%">Name</th>
@@ -106,7 +102,7 @@ if(empty($_SESSION["cart"])){
     </thead>
 <?php 
 
-    $total = 0;
+    $total = 0.00;
 
     foreach($_SESSION["cart"] as $product){
         $subtotal = $product["price"] * $product["quantity"];
@@ -126,20 +122,16 @@ if(empty($_SESSION["cart"])){
                 <td><button name ="remove" class="remove" type="button">X</button></td
              </tr>
              ';
+    }
+}
 ?>
-       <tr>
+                <tr>
                 <td colspan="3"></td>
                 <td colspan="2">
                 <span class="total"><?=$total?></span>€
                 </td>
             </tr>
        </table>
-<?php
-
-    }
-}
-?>
-         
 
 </body>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
