@@ -88,8 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
 </head>
 <body>
 <?php
-    if(!empty($_SESSION["cart"])){
-?>
+    if (!empty($_SESSION["cart"])) {
+        ?>
 <table class="table table bordered"
     <thead>
         <tr>
@@ -100,15 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
             <th width="20%">Remove</th>
         </tr>
     </thead>
-<?php 
+<?php
 
     $total = 0.00;
 
-    foreach($_SESSION["cart"] as $product){
-        $subtotal = $product["price"] * $product["quantity"];
-        $total = $total + $subtotal;
+        foreach ($_SESSION["cart"] as $product) {
+            $subtotal = $product["price"] * $product["quantity"];
+            $total = $total + $subtotal;
 
-        echo '
+            echo '
         <tr class="allitems" data-product_id="'.$product["product_id"].'" data-price="'.$product["price"].'"   >
              <td data-product_id"'.$product["name"].'>' .$product["name"].         '</td>
              <td> <input class= "quantity"
@@ -122,8 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 <td><button name ="remove" class="remove" type="button">X</button></td
              </tr>
              ';
+        }
     }
-}
 ?>
                 <tr>
                 <td colspan="3"></td>

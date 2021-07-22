@@ -1,4 +1,5 @@
-
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,13 +21,17 @@
 </head>
 
 <body>
+
+
+<body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
+ 
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
           data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
+
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -40,30 +45,27 @@
           <li><a href="#">Produtos <span class="sr-only"></span></a></li>
           <li><a href="#">Publicações</a></li>
           <li><a href="#">Contactos</a></li>
-  
+       
 <?php
-   if(isset($_SESSION["name"])) {
- 
-?>
+   if (isset($_SESSION["name"])) {
+       ?>
   <li>
     <a href=""class="loggedUser"><?=$_SESSION["name"]?></a>
   </li>
     <li><a href="?controller=logout"class="logout">Logout</a>
   </li>
 <?php
-   if ($_SESSION["user_type"] === "admin")
-      {
-?>
+   if ($_SESSION["user_type"] === "admin") {
+       ?>
         <li><a href="?controller=admin"class="admin">AdminZone</a></li>
 <?php
-    }
-?>
+   } ?>
 <?php
-  }else{
-?>
+   } else {
+       ?>
    <li><a href="?controller=access&action=login">Login</a></li>
 <?php
-  }
+   }
 ?>
      <li class="carrinho"><a href="?controller=cart"><img src="imagens/cartblack.svg">(<?=$cart_items?>)</a></li>
         </ul>
@@ -117,24 +119,30 @@
 
 <?php
 
+$product_price = 0;
 
-  foreach($products as $product){
-
-
-
-    echo 
+  foreach ($products as $product) {
+      $product_price = $product["price"];
+      foreach ($promotions as $promotion) {
+          if (isset($product["name"]) && $product["name"] === $promotion["name"]) {
+              $product_price = $promotion["discountPrice"];
+          } else {
+              $product_price = $product["price"];
+          }
+      }
+      echo
     '<article class="menu-item">
             <img class="photo" src="'.$product["photo"].'">
             <div class="itemInfo">
             <h4 class="nomeDoProduto">'.$product["name"].'</h4>
-            <h4 class="precoDoProduto">'.$product["price"].'€/kg
+            <h4 class="precoDoProduto">'.$product_price.'€/kg
             </h4>
       <form method="post" action="?controller=cart">
           <label>
             <input type="number" class="value" value = "1" min="1" max="'.$product["stock"].'" name="quantity">
             <input type="hidden" name="product_id" value="'.$product["product_id"].'">
             <input type="hidden" name="product_name" value="'.$product["name"].'">
-            <input type="hidden" name="price" value="'.$product["price"].'">
+            <input type="hidden" name="price" value="'.$product_price.'">
             <button name="send" class="cartButtonAdd">ADICIONAR <img src="imagens/cartblue.svg" alt="cart" id="secondCart"></button>
           </label>
         </form>

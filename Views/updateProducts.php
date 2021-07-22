@@ -51,10 +51,10 @@
 					<div class="wrap-input100 validate-input">
 						<select name="product_name">
 	<?php
-		foreach($products as $product){
-			echo '<option>' .$product["name"]. '</option>';
-		}
-	?>
+        foreach ($products as $product) {
+            echo '<option>' .$product["name"]. '</option>';
+        }
+    ?>
 						</select>
 					</div>
                     <div class="wrap-input100 validate-input">
@@ -79,11 +79,11 @@
 						<span class="txt1">
 						</span>
 <?php
- if(isset($message)){
-		echo '<p role="alert" style="color:red;">';
-		echo $message;
-		echo '<p>';
-	}
+ if (isset($message)) {
+     echo '<p role="alert" style="color:red;">';
+     echo $message;
+     echo '<p>';
+ }
 ?>						<a href="?controller=admin" class="txt2" href="#">
 							Return to admnistration area
 						</a>

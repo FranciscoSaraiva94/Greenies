@@ -26,7 +26,7 @@
 
 <?php
 
-    foreach($products as $product){
+    foreach ($products as $product) {
         echo '<tr class="allitems">'.
              '<th>' .$product["name"].         '</th>'.
              '<th>' .$product["product_id"].   '</th>'.

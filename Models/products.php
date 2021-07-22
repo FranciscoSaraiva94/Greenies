@@ -1,12 +1,18 @@
 <?php
 
-require("base.php");
 
-class Products extends Base {
 
-    public function createProduct($data, $file) {
-        
-       $query = $this->db->prepare("
+class Products
+{
+    public $db;
+    
+    public function __CONSTRUCT()
+    {
+        $this->db = new PDO("mysql:host=localhost;dbname=greenies;charset=utf8mb4", "root", "");
+    }
+    public function createProduct($data, $file)
+    {
+        $query = $this->db->prepare("
             INSERT INTO PRODUCTS
             (name, price, photo, category, stock)
             VALUES (?,?,?,?,?)
@@ -18,11 +24,11 @@ class Products extends Base {
             $data["category"],
             $data["stock"]
           ]);
-          return $query->fetch(PDO:: FETCH_ASSOC);
-
+        return $query->fetch(PDO:: FETCH_ASSOC);
     }
 
-    public function deleteProduct($data){
+    public function deleteProduct($data)
+    {
         $query = $this->db->prepare("
             DELETE FROM PRODUCTS
             WHERE name = ?
@@ -31,11 +37,11 @@ class Products extends Base {
             $data["product_name"]
           ]);
 
-          return $query->fetch(PDO:: FETCH_ASSOC);
+        return $query->fetch(PDO:: FETCH_ASSOC);
     }
 
-    public function updateProducts($data, $file){
-        
+    public function updateProducts($data, $file)
+    {
         $query = $this->db->prepare("
             UPDATE PRODUCTS
             SET stock = ".$data["stock"].", photo = '$file', price = ".$data["price"]."
@@ -49,23 +55,23 @@ class Products extends Base {
         return $query->fetch(PDO:: FETCH_ASSOC);
     }
 
-public function noImageUpdate($data){
-        
-    $query = $this->db->prepare("
+    public function noImageUpdate($data)
+    {
+        $query = $this->db->prepare("
         UPDATE PRODUCTS
         SET stock = ".$data["stock"].", price = ".$data["price"]."
         WHERE name = ?
     ");
 
-    $query->execute([
+        $query->execute([
         $data["product_name"]
     ]);
 
-    return $query->fetch(PDO:: FETCH_ASSOC);
-}
+        return $query->fetch(PDO:: FETCH_ASSOC);
+    }
 
-    public function seeProducts(){
-
+    public function seeProducts()
+    {
         $query = $this->db->prepare("
         SELECT product_id, name, price, stock, photo
         FROM PRODUCTS
@@ -78,8 +84,8 @@ public function noImageUpdate($data){
         return $products = $query->fetchAll(PDO:: FETCH_ASSOC);
     }
 
-    public function seeProduct($data){
-
+    public function seeProduct($data)
+    {
         $query = $this->db->prepare("
         SELECT product_id, name, price, stock, photo
         FROM PRODUCTS
@@ -87,27 +93,29 @@ public function noImageUpdate($data){
         
     ");
         $query->execute([
-            $data["product_name"]
+            $data["product_name"],
         ]);
 
         return $query->fetch(PDO:: FETCH_ASSOC);
     }
 
-    public function cartProducts($data){
+    public function cartProducts($data)
+    {
         $query = $this->db->prepare("
-        SELECT product_id, name, price, stock, photo
+        SELECT product_id, name, stock, photo
         FROM PRODUCTS
         WHERE product_id = ? AND stock >= ?
         ");
         
         $query->execute([
             $data["product_id"],
-            $data["quantity"]
+            $data["quantity"],
         ]);
 
         return $product = $query->fetch(PDO:: FETCH_ASSOC);
     }
-    public function updateQuantities($data){
+    public function updateQuantities($data)
+    {
         $query = $this->db->prepare("
         SELECT product_id
         FROM PRODUCTS
@@ -119,5 +127,20 @@ public function noImageUpdate($data){
             $_POST["quantity"]
         ]);
         return $products = $query->fetch(PDO:: FETCH_ASSOC);
+    }
+
+    public function checkPromo()
+    {
+        $query = $this->db->prepare("
+        SELECT products.name, products.photo, promotions.product_id, products.price, promotions.discountPrice, products.stock
+        FROM products
+        INNER JOIN Promotions
+        ON products.product_id = promotions.product_id;
+         ");
+
+        $query->execute([
+           
+        ]);
+        return $query->fetchAll(PDO:: FETCH_ASSOC);
     }
 }

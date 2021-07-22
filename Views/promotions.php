@@ -43,37 +43,31 @@
 			<div class="wrap-login100">
 				<form method="POST" action="?controller=promotions" enctype="multipart/form-data" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
-                    <h2> Promote </h2>
+                    <h2> Promote Product </h2>
                 <!-- <a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
 								srcset=""></a> -->
 					</span>
 					Product to Update
 					<div class="wrap-input100 validate-input">
 						<select name="product_name">
+                        
 	<?php
-		foreach($products as $product){
-			echo '<option>' .$product["name"]. '</option>';
-		}
-	?>
+        foreach ($products as $product) {
+            echo '<option>' .$product["name"]. '</option>';
+        }
+    ?>
+
 						</select>
 					</div>
                     <div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="price" id="">
-						<span class="focus-input100" data-placeholder="Discounted Price"></span>
+						<input class="input100" type="number" name="price" id="">
+						<span class="focus-input100" data-placeholder="Discounted Percentage"></span>
 					</div>
                         Discount Photo
-
-<?php
-	foreach($products as $product){
-			
-?>
-	<input type="hidden" name="product_id" value="<?=$product["product_id"]?>">
-<?php
-}
-?>
                     <div>
                         <input type="file" class="file" name="file">
                     </div>
+					<input type="hidden" name="product_id" value="<?=$product["product_id"]?>">
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
@@ -84,11 +78,11 @@
 						<span class="txt1">
 						</span>
 <?php
- if(isset($message)){
-		echo '<p role="alert" style="color:red;">';
-		echo $message;
-		echo '<p>';
-	}
+ if (isset($message)) {
+     echo '<p role="alert" style="color:red;">';
+     echo $message;
+     echo '<p>';
+ }
 ?>						<a href="?controller=admin" class="txt2" href="#">
 							Return to admnistration area
 						</a>
