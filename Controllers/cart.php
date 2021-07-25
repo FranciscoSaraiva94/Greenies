@@ -1,9 +1,9 @@
 <?php
 
 require("models/products.php");
+
+
 $productsModel = new Products();
-
-
 
 if (isset($_POST["send"])) {
     if (

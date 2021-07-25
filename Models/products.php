@@ -62,7 +62,6 @@ class Products
         SET stock = ".$data["stock"].", price = ".$data["price"]."
         WHERE name = ?
     ");
-
         $query->execute([
         $data["product_name"]
     ]);
@@ -142,5 +141,21 @@ class Products
            
         ]);
         return $query->fetchAll(PDO:: FETCH_ASSOC);
+    }
+    
+    public function updateStock($item)
+    {
+        $query = $this->db->prepare("
+            UPDATE PRODUCTS
+            SET stock = stock - ?
+            WHERE product_id = ?
+        ");
+
+        $query->execute([
+            $item["quantity"],
+            $item["product_id"]
+        ]);
+
+        return $query->fetch(PDO:: FETCH_ASSOC);
     }
 }

@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <?php
     if (!empty($_SESSION["cart"])) {
         ?>
+<main>
 <table class="table table bordered"
     <thead>
         <tr>
@@ -101,9 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </tr>
     </thead>
 <?php
-
     $total = 0.00;
-
         foreach ($_SESSION["cart"] as $product) {
             $subtotal = $product["price"] * $product["quantity"];
             $total = $total + $subtotal;
@@ -129,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
              ';
         }
     }
+    
 ?>
                 <tr>
                 <td colspan="3"></td>
@@ -137,7 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 </td>
             </tr>
        </table>
-
+</main>
+       <a href="?controller=reviewPurchase">Checkout</a>
+       <a href="?controller=home">Return home</a>
+    
 </body>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>

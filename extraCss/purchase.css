@@ -1,0 +1,14 @@
+.table{
+    width:30%;
+    position: relative;
+    justify-content: center;
+}    
+body { margin-top:20px; }
+.panel-title {display: inline;font-weight: bold;}
+.checkbox.pull-right { margin: 0; }
+.pl-ziro { padding-left: 0px; }
+
+.finalPrice{
+width:50px;
+}
+
