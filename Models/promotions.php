@@ -73,6 +73,7 @@ class promotions
         $query = $this->db->prepare("
         Select product_id, discountPrice, name
         FROM promotions
+
         ");
         $query->execute([
 

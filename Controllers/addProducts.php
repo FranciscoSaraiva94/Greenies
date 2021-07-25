@@ -8,6 +8,7 @@ if (!$_SESSION["user_type"] || $_SESSION["user_type"]  === "user") {
 
 require("models/products.php");
 
+
 $productsModel = new Products();
 
 if (isset($_POST["send"])) {

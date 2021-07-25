@@ -104,7 +104,7 @@ class Products
         $query = $this->db->prepare("
         SELECT product_id, name, stock, photo
         FROM PRODUCTS
-        WHERE product_id = ? AND stock >= ?
+        WHERE product_id = ? AND stock >= ? 
         ");
         
         $query->execute([
@@ -129,13 +129,13 @@ class Products
         return $products = $query->fetch(PDO:: FETCH_ASSOC);
     }
 
-    public function checkPromo()
+    public function checkPromos()
     {
         $query = $this->db->prepare("
-        SELECT products.name, products.photo, promotions.product_id, products.price, promotions.discountPrice, products.stock
+        SELECT products.name, products.photo, promotions.product_id, promotions.discountPrice, products.stock
         FROM products
         INNER JOIN Promotions
-        ON products.product_id = promotions.product_id;
+        ON products.product_id = promotions.product_id; products.name = promotions.name;
          ");
 
         $query->execute([

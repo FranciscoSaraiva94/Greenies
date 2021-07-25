@@ -8,9 +8,11 @@ require_once("models/promotions.php");
 $productsModel = new Products();
 $promosModel = new promotions();
 
-$products = $productsModel->seeProducts();
-$promotions = $promosModel->getPromos();
-$Promotions = $productsModel->checkPromo();
+$products   = $productsModel->seeProducts();
+$promotions = $productsModel->checkPromos();
+
+
+
 
 $cart_items = 0;
 

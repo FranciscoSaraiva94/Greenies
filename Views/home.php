@@ -119,30 +119,36 @@
 
 <?php
 
-$product_price = 0;
 
   foreach ($products as $product) {
-      $product_price = $product["price"];
+      $discount = 0;
+      $old_price = $product["price"];
       foreach ($promotions as $promotion) {
-          if (isset($product["name"]) && $product["name"] === $promotion["name"]) {
-              $product_price = $promotion["discountPrice"];
+          if (array_key_exists("product_id", $promotion) && $promotion["product_id"] === $product["product_id"]) {
+              $discount = $promotion["discountPrice"];
           } else {
-              $product_price = $product["price"];
           }
       }
-      echo
-    '<article class="menu-item">
+      echo'
+    <article class="menu-item">
             <img class="photo" src="'.$product["photo"].'">
             <div class="itemInfo">
-            <h4 class="nomeDoProduto">'.$product["name"].'</h4>
-            <h4 class="precoDoProduto">'.$product_price.'€/kg
-            </h4>
+            <h4 class="nomeDoProduto">'.$product["name"].'</h4>';
+      if ($discount) {
+          echo '<h4 class="precoDoProduto text-primary"><s><small>'.$product["price"].'€ </small></s>'.$discount.'€/kg</h4>';
+          $product["price"] = $discount;
+      } else {
+          echo '<h4 class="precoDoProduto">'.$product["price"].'€/kg</h4>';
+      }
+      echo '
       <form method="post" action="?controller=cart">
           <label>
             <input type="number" class="value" value = "1" min="1" max="'.$product["stock"].'" name="quantity">
             <input type="hidden" name="product_id" value="'.$product["product_id"].'">
             <input type="hidden" name="product_name" value="'.$product["name"].'">
-            <input type="hidden" name="price" value="'.$product_price.'">
+            <input type="hidden" name="price" value="'.$product["price"].'">
+            <input type="hidden" name="discount" value="'.$discount.'">
+            <input type="hidden" name="oldPrice" value="'.$old_price.'">
             <button name="send" class="cartButtonAdd">ADICIONAR <img src="imagens/cartblue.svg" alt="cart" id="secondCart"></button>
           </label>
         </form>
@@ -151,31 +157,8 @@ $product_price = 0;
   }
 ?>
 
-<!--
-<div class="cartButtons">
-      <div class="minusAndAdd">
-        <button type="button" class="cartButtonMinus">-</button>
-        <h5 class="itemQuantity">0</h5>
-        <button type="button" class="cartButtonPlus" id="add" alt="" srcset="">+</button>
-      </div>
-  -->
 </div>
-      <!--<article class="menu-item">
-          <img src="./imagens/alface.jpg" alt="menu item" class="photo"/>
-          <div class="itemInfo">
-              <h4 class="nomeDoProduto">Alface</h4>
-              <h4 class="precoDoProduto">€/kg</h4>
-               <div class="cartButtons">
-                   <div class="minusAndAdd">
-                        <button class="cartButtonMinus">-</button>
-                        <h5 class="itemQuantity">0</h5>
-                        <button class="cartButtonPlus" id="add" alt="" srcset="">+</button>
-                   </div>  
-              <button class="cartButtonAdd">ADICIONAR <img src="/imagens/cartblue.svg" alt="cart" id="secondCart"></button>
-            </div>
-          </div>
-        </article>      
-         -->
+     
     </div>
   </main>
 

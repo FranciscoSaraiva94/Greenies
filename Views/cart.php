@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <tr>
             <th width="20%">Name</th>
             <th width="20%">Quantity</th>
-            <th width="20%">Price(ea)</th>
+            <th width="20%">Price(uni)</th>
             <th width="20%">Total</th>
             <th width="20%">Remove</th>
         </tr>
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         foreach ($_SESSION["cart"] as $product) {
             $subtotal = $product["price"] * $product["quantity"];
             $total = $total + $subtotal;
-
+        
             echo '
         <tr class="allitems" data-product_id="'.$product["product_id"].'" data-price="'.$product["price"].'"   >
              <td data-product_id"'.$product["name"].'>' .$product["name"].         '</td>
@@ -116,8 +116,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 value="'. $product["quantity"]. '" 
                 min="1" 
                  max="'.$product["stock"].'">
-                 </td>
-             <td>' .$product["price"].  '€'.  '</td>
+                 </td>';
+            if ($product["price"] != $product["old_price"]) {
+                echo '<td><s><small class="text-primary">'.$product["old_price"].'€ </s></small>'.$product["price"].  '€'.  '</td>';
+            } else {
+                echo '<td>'.$product["price"].  '€'.  '</td>';
+            }
+            echo '
              <td><span class="subtotal">' .$subtotal. '€'. '</span></td>
                 <td><button name ="remove" class="remove" type="button">X</button></td
              </tr>

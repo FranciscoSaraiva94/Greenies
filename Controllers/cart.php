@@ -3,6 +3,8 @@
 require("models/products.php");
 $productsModel = new Products();
 
+
+
 if (isset($_POST["send"])) {
     if (
         !empty($_POST["quantity"]) &&
@@ -12,14 +14,16 @@ if (isset($_POST["send"])) {
         $_POST["quantity"] >= 1
     ) {
         $product = $productsModel->cartProducts($_POST);
-        print_r($product);
         if (!empty($product)) {
+            print_r($product);
             $_SESSION["cart"][$product["product_id"] ]= [
                 "quantity"      => (int)$_POST["quantity"],
                 "name"          => $product["name"],
                 "product_id"    => $product["product_id"],
                 "price"         => $_POST["price"],
-                "stock"         => $product["stock"]
+                "stock"         => $product["stock"],
+                "discount"      => $_POST["discount"],
+                "old_price"     => $_POST["oldPrice"]
             ];
         }
         header("Location: ?controller=cart");
