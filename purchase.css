@@ -1,0 +1,32 @@
+
+.table{
+margin-top: 30px;
+max-width:100%;
+}    
+body { margin-top:20px; }
+.panel-title {display: inline;font-weight: bold;}
+.checkbox.pull-right { margin: 0; }
+.pl-ziro { padding-left: 0px; }
+
+.finalPrice{
+width:100px;
+}
+
+
+@media only screen and (min-width: 1000px) {
+    .container {
+        position: relative;
+        left:25%;
+    }
+    .table{
+        position:relative;
+        width:50%;
+        left:25%;
+    }
+  }
+  @media only screen and (min-width: 400px) {
+    .container {
+        position: relative;
+        left:10%;
+    }
+  }

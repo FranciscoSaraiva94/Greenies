@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,13 +8,15 @@
            <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-           <link rel="stylesheet" href="extraCss/purchase.css">
+           <link rel="stylesheet" href="purchase.css">
       </head> 
+      
 <body>
+    <h3 class="text-center">Order Details</h3>
     <table class="table table responsive">
     <thead>
         <tr>
-            <th scope="col">Name</th>
+            <th scope="col">Product Name</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
             <th scope="col">Total</th>
@@ -46,9 +44,9 @@ $total = 0.00;
             </tr>
        </table>
        <form action="?controller=endPurchase" method="post">	
-       <div class="container">
+       <div class="container ">
     <div class="row">
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-9 col-md-42">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
@@ -87,15 +85,15 @@ $total = 0.00;
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-7 col-md-7">
+                        <div class="col-xs-6 col-md-7">
                             <div class="form-group">
+                            <b>EXPIRY DATE</b></label>
                                 <label for="expityMonth">
-                                    EXPIRY DATE</label>
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
                                     <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
                                 </div>
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required /></div>
+                                    <input type="text" class="form-control" id="expityYear" placeholder="YYYY" required /></div>
                             </div>
                         </div>
                         <div class="col-xs-5 col-md-5 pull-right">
@@ -118,7 +116,7 @@ $total = 0.00;
             <button name="send" type="submit" class="btn btn-success btn-lg btn-block" role="button">Confirm Payment</button> 
         </div>
     </div>
-    </form>
+ </form>
 </div>
 </body>
 </html>
