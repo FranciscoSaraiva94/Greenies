@@ -1,4 +1,6 @@
-
+<?php
+    include("cartNav.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>  
@@ -10,8 +12,9 @@
            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
            <link rel="stylesheet" href="purchase.css">
       </head> 
-      
+   
 <body>
+
     <h3 class="text-center">Order Details</h3>
     <table class="table table responsive">
     <thead>
@@ -39,7 +42,7 @@ $total = 0.00;
 ?> 
                 <td colspan="3"></td>
                 <td colspan="2">
-                <span class="total"><?=$total?></span>€
+                <span class="total"><b><?=$total?></b></span>€
                 </td>
             </tr>
        </table>
@@ -55,7 +58,7 @@ $total = 0.00;
                     <div class="checkbox pull-right">
                         <label>
                             <input type="checkbox" />
-                            Remember
+                            Remember Card
                         </label>
                     </div>
                 </div>
@@ -65,7 +68,7 @@ $total = 0.00;
                     <label for="cardNumber">
                             CARD NAME</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="card_name" id="cardName"s placeholder="Valid Card Name"
+                            <input type="text" class="form-control" maxlength="120" minlenght="3" name="card_name" id="cardName"s placeholder="Valid Card Name"
                                 required autofocus />
                             <span class="input-group-addon"></span>
                         </div>
@@ -90,20 +93,20 @@ $total = 0.00;
                             <b>EXPIRY DATE</b></label>
                                 <label for="expityMonth">
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
+                                    <input type="text" class="form-control" id="expityMonth"  maxlength="2" placeholder="MM" required />
                                 </div>
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityYear" placeholder="YYYY" required /></div>
+                                    <input type="text" class="form-control" id="expityYear"  minLength="4" maxlength="4" placeholder="YYYY" required /></div>
                             </div>
                         </div>
                         <div class="col-xs-5 col-md-5 pull-right">
                             <div class="form-group">
                                 <label for="cvCode">
                                     CV CODE</label>
-                                <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
+                                <input type="password" class="form-control" id="cvCode" maxlength="3"  minlength="3" placeholder="CV" required />
                             </div>
                         </div>
-                        <input type="hidden" name="total" value=<?=$total?>>
+                        <input class= "totalCost" type="hidden" name="total" value=<?=$total?>>
     </div>
                 </form>
                </div>

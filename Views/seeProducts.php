@@ -1,4 +1,6 @@
-
+<?php
+    require("adminNav.php")
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +10,21 @@
     <title>See products</title>
     <link rel="stylesheet" href="./extraCss/styles.css">
     <link rel="stylesheet" href="./homeFiles/styles.css">
+   
 </head>
 <body>
+    <style>
+        .seeProducts{
+            width:50%;
+            margin:auto;
+        }
 
+    h1{
+        text-align:center;
+    }
+    </style>
     <h1>Current products</h1>
-
-<table>
+<table class="seeProducts">
     <thead>
         <tr>
             <th>Name</th>
@@ -26,13 +37,20 @@
 
 <?php
 
+$noStock = "<p role='warning'>out of stock";
+
     foreach ($products as $product) {
-        echo '<tr class="allitems">'.
-             '<th>' .$product["name"].         '</th>'.
-             '<th>' .$product["product_id"].   '</th>'.
-             '<th>' .$product["price"].        '</th>'.
-             '<th>' .$product["stock"].        '</th>'.
-             '<th> <img class="imagens"src="'.$product["photo"].'"></th>'.
+        echo '<tr class="allitems">
+              <th> '.$product["name"].'         </th>
+              <th> '.$product["product_id"].'   </th>
+              <th> '.$product["price"].'        </th>
+';
+        if ($product["stock"] == 0) {
+            $product["stock"] = $noStock;
+        }
+        echo '
+              <th> '.$product["stock"].'        </th>
+              <th> <img class="imagens"src="'.$product["photo"].'"></th>'.
              '</tr>';
     }
 ?>

@@ -4,7 +4,6 @@ require("models/users.php");
 
 $usersModel = new Users();
 
-
 if ($_GET["action"] === "login") {
     if (isset($_POST["send"])) {
         $user = $usersModel->getUser($_POST["email"]);
@@ -30,7 +29,6 @@ if ($_GET["action"] === "login") {
 } elseif ($_GET["action"] === "register") {
     if (isset($_POST["send"])) {
         $user = $usersModel->createUser($_POST);
-
         if (
             filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) &&
             $_POST["password"] === $_POST["repeat_password"]

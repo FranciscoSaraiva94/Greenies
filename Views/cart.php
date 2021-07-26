@@ -1,4 +1,8 @@
+<?php
 
+    require("cartNav.php")
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

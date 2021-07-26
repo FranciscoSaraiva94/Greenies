@@ -15,8 +15,6 @@ class Users extends Base
           $data
         ]);
 
-        print_r($data);
-
         return $query->fetch(PDO:: FETCH_ASSOC);
     }
 
