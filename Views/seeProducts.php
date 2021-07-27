@@ -1,5 +1,5 @@
 <?php
-    require("adminNav.php")
+    require("navbars/adminNav.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,17 +8,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>See products</title>
-    <link rel="stylesheet" href="./extraCss/styles.css">
-    <link rel="stylesheet" href="./homeFiles/styles.css">
-   
+    <link rel="stylesheet" href="css/seeproduct.css">   
 </head>
 <body>
     <style>
         .seeProducts{
             width:50%;
-            margin:auto;
+            margin:auto; 
         }
-
+        body{
+            margin:0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+            Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
+        
+    
     h1{
         text-align:center;
     }

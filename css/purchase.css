@@ -1,7 +1,7 @@
 
 .table{
-margin-top: 30px;
-max-width:100%;
+
+max-width:50%
 }    
 body { margin-top:20px; }
 .panel-title {display: inline;font-weight: bold;}
@@ -11,7 +11,6 @@ body { margin-top:20px; }
 .finalPrice{
 width:100px;
 }
-
 
 @media only screen and (min-width: 1000px) {
     .container {

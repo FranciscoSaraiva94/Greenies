@@ -1,7 +1,7 @@
 <?php
+require_once("base.php");
 
-
-class orderDetails
+class orderDetails extends Base
 {
     public $db;
 

@@ -1,22 +1,58 @@
 <?php
-    include("cartNav.php");
+    include("navbars/cartNav.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>  
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
-           <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-           <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-           <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-           <link rel="stylesheet" href="purchase.css">
-      </head> 
-   
+        
+</head>  
 <body>
+<style>
+.checkout{
+    display:none;
+}
+
+.table{
+
+max-width:50%
+}    
+    .panel-title {display: inline;font-weight: bold;}
+    .checkbox.pull-right { margin: 0; }
+    .pl-ziro { padding-left: 0px; }
+
+.finalPrice{
+    width:100px;
+}
+
+@media only screen and (min-width: 1000px) {
+    .container {
+        position: relative;
+        left:25%;
+    }
+    .table{
+        position:relative;
+        width:50%;
+        left:26%;
+    }
+  }
+  @media only screen and (min-width: 400px) {
+    .container {
+        position: relative;
+        left:10%;
+    }
+  }
+</style>
+
+<?php
+    if (!isset($_SESSION["user_id"])) {
+        echo 'por favor efetue login primeiro';
+        die();
+    }
+?>
+
 
     <h3 class="text-center">Order Details</h3>
-    <table class="table table responsive">
+    <table class="table table-bordered">
     <thead>
         <tr>
             <th scope="col">Product Name</th>
@@ -46,8 +82,8 @@ $total = 0.00;
                 </td>
             </tr>
        </table>
-       <form action="?controller=endPurchase" method="post">	
-       <div class="container ">
+<form action="?controller=endPurchase" method="post">	
+  <div class="container">
     <div class="row">
         <div class="col-xs-9 col-md-42">
             <div class="panel panel-default">
@@ -57,7 +93,7 @@ $total = 0.00;
                     </h3>
                     <div class="checkbox pull-right">
                         <label>
-                            <input type="checkbox" />
+                            <input type="checkbox">
                             Remember Card
                         </label>
                     </div>
@@ -75,25 +111,25 @@ $total = 0.00;
                         <label for="cardNumber">
                             CARD NUMBER</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="number" id="cardNumber" placeholder="Valid Card Number"
+                            <input type="number" class="form-control" minlength="11" maxlength="19"name="number" id="cardNumber" placeholder="Valid Card Number"
                                 required autofocus />
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                         </div>
                         <label for="cardNumber">
                             INVOICE E-MAIL</label>
                         <div class="input-group">
-                            <input type="email" name="email" class="form-control" placeholder="please enter an e-mail"
+                            <input type="email" name="card-email" class="form-control" placeholder="please enter an e-mail"
                                 required autofocus />
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-6 col-md-7">
+                            <b>EXPIRY DATE</b>
                             <div class="form-group">
-                            <b>EXPIRY DATE</b></label>
                                 <label for="expityMonth">
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityMonth"  maxlength="2" placeholder="MM" required />
+                                    <input type="number" class="form-control" id="expityMonth" min="1" max="12" maxlength="2" placeholder="MM" required />
                                 </div>
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
                                     <input type="text" class="form-control" id="expityYear"  minLength="4" maxlength="4" placeholder="YYYY" required /></div>
@@ -103,11 +139,11 @@ $total = 0.00;
                             <div class="form-group">
                                 <label for="cvCode">
                                     CV CODE</label>
-                                <input type="password" class="form-control" id="cvCode" maxlength="3"  minlength="3" placeholder="CV" required />
+                                <input type="password" name="CV"class="form-control" id="cvCode" maxlength="3"  minlength="3" placeholder="CV" required>
                             </div>
                         </div>
                         <input class= "totalCost" type="hidden" name="total" value=<?=$total?>>
-    </div>
+                        </div>
                 </form>
                </div>
             </div>
@@ -122,4 +158,5 @@ $total = 0.00;
  </form>
 </div>
 </body>
+
 </html>

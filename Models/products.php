@@ -1,15 +1,9 @@
 <?php
 
+require_once("base.php");
 
-
-class Products
+class Products extends Base
 {
-    public $db;
-    
-    public function __CONSTRUCT()
-    {
-        $this->db = new PDO("mysql:host=localhost;dbname=greenies;charset=utf8mb4", "root", "");
-    }
     public function createProduct($data, $file)
     {
         $query = $this->db->prepare("
@@ -59,10 +53,12 @@ class Products
     {
         $query = $this->db->prepare("
         UPDATE PRODUCTS
-        SET stock = ".$data["stock"].", price = ".$data["price"]."
+        SET stock = ?, price = ?
         WHERE name = ?
     ");
         $query->execute([
+        $data["stock"],
+        $data["price"],
         $data["product_name"]
     ]);
 

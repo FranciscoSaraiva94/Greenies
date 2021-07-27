@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Greenies</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -53,20 +53,23 @@ body {
     .logo{
         display:none
     }
-    .top nav a{
-        margin:auto;
-        font-size:15px;
+    .topnav{
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
     }
-    .leftNav a{
-        font-size:1.5rem;
+    .topnav a{
+        flex:2
+        position:relative;
         text-align:center;
+        font-size:20px;
     }
-  }
+}
 </style>
 </head>
 <body>
 <div class="topnav" id="myTopnav">
-<a href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt="" srcset=""></a>
+<a href="./"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt="" srcset=""></a>
 <div class="leftNav">
   <?php
    if (isset($_SESSION["name"])) {

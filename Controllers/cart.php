@@ -5,6 +5,7 @@ require("models/products.php");
 
 $productsModel = new Products();
 
+
 if (isset($_POST["send"])) {
     if (
         !empty($_POST["quantity"]) &&
@@ -15,7 +16,6 @@ if (isset($_POST["send"])) {
     ) {
         $product = $productsModel->cartProducts($_POST);
         if (!empty($product)) {
-            print_r($product);
             $_SESSION["cart"][$product["product_id"] ]= [
                 "quantity"      => (int)$_POST["quantity"],
                 "name"          => $product["name"],

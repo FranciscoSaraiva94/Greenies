@@ -8,6 +8,16 @@
 
 <head>
 	<title>Login</title>
+    <style>
+        .text-center{
+            padding-top:50px;
+        }
+
+    .details{
+        color:black;
+        padding-bottom:10px;
+    }
+    </style>
 </head>
 <body>
 	<div class="limiter">
@@ -19,16 +29,17 @@
 								srcset=""></a>
 					</span>
 					<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                        <h6 class="details">Please enter your e-mail</h6>
 						<input class="input100" type="text" name="email">
-						<span class="focus-input100" data-placeholder="email"></span>
+						<span class="focus-input100"></span>
 					</div>
-
+                    <h6 class="details">Please enter your password</h6>
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
 						<input class="input100" type="password" name="password">
-						<span class="focus-input100" data-placeholder="Password"></span>
+						<span class="focus-input100"></span>
 					</div>
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
@@ -38,8 +49,14 @@
 							</button>
 						</div>
 					</div>
-					</form>
-					<div class="text-center p-t-115">
+				<div class="text-center p-t-115">
+<?php
+    if (isset($message)) {
+        echo '<p role="alert" style="color:red;">';
+        echo $message;
+        echo '<p>';
+    }
+?>
 						<span class="txt1">
 							Don’t have an account?
 						</span>

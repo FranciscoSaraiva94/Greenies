@@ -1,7 +1,5 @@
 <?php
-
-    require("cartNav.php")
-
+    require("navbars/cartNav.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     
 });
-
     </script>
     <head>  
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
@@ -91,6 +88,19 @@ document.addEventListener("DOMContentLoaded", () => {
       </head> 
 </head>
 <body>
+<?php
+ 
+  if (empty($_SESSION["cart"])) {
+      echo 'please select some items first'; ?>
+      <style>
+        .checkout{
+        display:none;
+}     </style>
+<?php
+die();
+  }
+?>
+
 <?php
     if (!empty($_SESSION["cart"])) {
         ?>

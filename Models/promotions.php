@@ -1,15 +1,8 @@
 <?php
 
-
-class promotions
+require_once("base.php");
+class promotions extends Base
 {
-    public $db;
-    
-    public function __CONSTRUCT()
-    {
-        $this->db = new PDO("mysql:host=localhost;dbname=greenies;charset=utf8mb4", "root", "");
-    }
-
     public function setPromo($data, $product)
     {
         $query = $this->db->prepare("

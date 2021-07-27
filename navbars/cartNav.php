@@ -25,9 +25,7 @@ body {
   background: #82b5a5;
   position:sticky;
   text-decoration:none;
-  
 }
-
 .topnav a {
   float: left;
   padding: 10px 10px;
@@ -66,7 +64,7 @@ body {
 </head>
 <body>
 <div class="topnav" id="myTopnav">
-<a href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt="" srcset=""></a>
+<a href="./"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt="" srcset=""></a>
 <div class="leftNav">
   <?php
    if (isset($_SESSION["name"])) {
@@ -74,6 +72,7 @@ body {
     <a href="./">Home</a>
     <a href=""class="loggedUser"><?=$_SESSION["name"]?></a>
     <a href="?controller=logout">Logout</a>
+    <a class="checkout" href="?controller=reviewPurchase">Checkout</a>
 <?php
    if ($_SESSION["user_type"] === "admin") {
        ?>

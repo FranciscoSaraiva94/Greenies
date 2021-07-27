@@ -22,7 +22,7 @@
 </head> 
 <body>
 <?php
-    require("adminNav.php");
+    require("navbars/adminNav.php");
 ?>
 <div class="limiter">
 		<div class="container-login100">

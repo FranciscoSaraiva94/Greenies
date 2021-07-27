@@ -1,5 +1,5 @@
 <?php
-    require("homeNav.php")
+    require("navbars/homeNav.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">

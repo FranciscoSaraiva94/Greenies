@@ -1,19 +1,14 @@
 
 <?php
-class orders
-{
-    public $db;
+require_once("base.php");
 
-    public function __CONSTRUCT()
-    {
-        $this->db = new PDO("mysql:host=localhost;dbname=greenies;charset=utf8mb4", "root", "");
-    }
-    
+class orders extends Base
+{
     public function setOrder($id, $email, $total)
     {
         $query = $this->db->prepare("
                 INSERT INTO orders
-                (user_id, email, order_value)
+                (user_id, card_email, order_value)
                 VALUES(?,?,?)
                 ");
         $query->execute([

@@ -5,9 +5,13 @@
 <html lang="en">
 <head>
 <style>
-         .text-center{
+         
+    .details{
+        color:black;
+    }
+    .text-center{
             padding-top:50px;
-        }
+    }
 </style>
 	<title>Register</title>
 </head>
@@ -21,47 +25,56 @@
 						<img src="http://localhost/greenies/imagens/logo.svg"></a>
 					</span>
 						<label class="wrap-input100 validate-input">
+                        <h6 class="details">Name</h6>
 							<input class="input100" type="text" name="name" required>
-							<span class="focus-input100" data-placeholder="Nome"></span>
+							<span class="focus-input100"></span>
 					</label>
 					</span>
-						<label class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                            <h6 class="details">Email</h6>  
+						<label class="wrap-input100 validate-input">
 							<input class="input100" type="email" name="email" required>
-							<span class="focus-input100" data-placeholder="Email"></span>
+							<span class="focus-input100"></span>
 					</label>
+                    <h6 class="details">Address</h6>
 					<label class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="morada" required>
-						<span class="focus-input100" data-placeholder="Address"></span>
+						<input class="input100" type="text" name="address" required>
+						<span class="focus-input100"></span>
 					</label>
+                    <h6 class="details">Postal_code</h6>
 					<label class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="postal_code" required>
-						<span class="focus-input100" data-placeholder="Postal_code"></span>
+						<span class="focus-input100"></span>
 					</label>
+                    <h6 class="details">Phone</h6>
 					<label class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="phone" required>
-						<span class="focus-input100" data-placeholder="Phone"></span>
+						<input class="input100" type="text" required name="phone" required>
+						<span class="focus-input100"></span>
 					</label>
+                    <h6 class="details">City</h6>
 					<label class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="City" required>
-						<span class="focus-input100" data-placeholder="City"></span>
+						<input class="input100" type="text" required name="city" required>
+						<span class="focus-input100"></span>
 					</label>
+                    <h6 class="details">Country</h6>
 					<label class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="Country" required>
-						<span class="focus-input100" data-placeholder="Country"></span>
-					</label>
-					<label class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="text" required name="country" required>
+						<span class="focus-input100"></span>
+					</label>  
+                    <h6 class="details">Password</h6>
+					<label class="wrap-input100 validate-input">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
 						<input class="input100" type="password" required name="password">
-						<span class="focus-input100" data-placeholder="Password"></span>
+						<span class="focus-input100"></span>
 					</label>
-					<label class="wrap-input100 validate-input" data-validate="Enter password">
+                    <h6 class="details">Repeat Password</h6>
+					<label class="wrap-input100 validate-input" required data-validate="Enter password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
 						<input class="input100" type="password" required name="repeat_password">
-						<span class="focus-input100" data-placeholder="Repeat password"></span>
+						<span class="focus-input100"></span>
 					</label>
 					<input type="text">
 					<label class="container-login100-form-btn">
