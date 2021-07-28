@@ -32,16 +32,19 @@
                     <h2>Add Products</h2>
 					</span>
 					<div class="wrap-input100 validate-input">
+                        <h6 class="details">Product Name</h6>
 						<input class="input100" type="text" name="name">
-						<span class="focus-input100" data-placeholder=" Product Name"></span>
+						<span class="focus-input100"></span>
 					</div>
                     <div class="wrap-input100 validate-input">
+                        <h6 class="details">Stock</h6>
 						<input class="input100" type="text" name="stock" id="">
-						<span class="focus-input100" data-placeholder="Stock"></span>
+						<span class="focus-input100"></span>
 					</div>
                     <div class="wrap-input100 validate-input">
+                        <h6 class="details">Price</h6>
 						<input class="input100" type="text" name="price" id="">
-						<span class="focus-input100" data-placeholder="Price"></span>
+						<span class="focus-input100"></span>
 					</div>
                     <div>
                     <label>

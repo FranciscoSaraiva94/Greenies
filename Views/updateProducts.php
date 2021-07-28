@@ -37,17 +37,19 @@
 						</select>
 					</div>
                     <div class="wrap-input100 validate-input">
+                        <h6 class="details">New stock</h6>
 						<input class="input100" type="text" name="stock" id="">
-						<span class="focus-input100" data-placeholder="New Stock"></span>
+						<span class="focus-input100">
 					</div>
                     <div class="wrap-input100 validate-input">
+                    <h6 class="details">New price</h6>
 						<input class="input100" type="text" name="price" id="">
-						<span class="focus-input100" data-placeholder="New Price"></span>
-					</div>
-                        New photo
+						<span class="focus-input100"></span>
+					</div>     
                     <div>
                         <input type="file" class="file" name="file">
                     </div>
+                
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>

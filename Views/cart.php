@@ -86,6 +86,20 @@ document.addEventListener("DOMContentLoaded", () => {
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
       </head> 
+<h2>Cart</h2>
+      <style>
+          h2{
+              margin:auto;
+              text-align:center;
+              margin-top:30px;
+          }
+          .table{
+              width:50%;
+              margin:auto;
+              border:1px solid black;
+              margin-top:30px;
+          }
+      </style>
 </head>
 <body>
 <?php
@@ -105,7 +119,7 @@ die();
     if (!empty($_SESSION["cart"])) {
         ?>
 <main>
-<table class="table table bordered"
+<table class="table table bordered">
     <thead>
         <tr>
             <th width="20%">Name</th>

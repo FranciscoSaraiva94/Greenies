@@ -9,11 +9,16 @@
 ?>
 
     <style>
+        
+
      
         ul{
             text-align:center;
         }
       
+        ul > li > a{
+            font-size:20px;
+        }
         .logo{
             position: relative;
             left: 70%;
@@ -48,11 +53,9 @@
             
 					</div>
 			</div>
-		</div>
-        
+</div>
 	</div>
-
-    </nav>
+</nav>
 </div>
 </form>
 </body>

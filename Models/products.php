@@ -64,6 +64,34 @@ class Products extends Base
 
         return $query->fetch(PDO:: FETCH_ASSOC);
     }
+ 
+
+    public function getID($name)
+    {
+        $query = $this->db->prepare("
+                SELECT product_id
+                FROM products
+                WHERE name = ?
+         ");
+        $query->execute([
+             $name
+         ]);
+        return $query->fetch(PDO:: FETCH_ASSOC);
+    }
+
+    public function getPrice($data)
+    {
+        $query = $this->db->prepare("
+            Select price
+            From Products
+            WHERE name = ?
+            ");
+
+        $query->execute([
+            $data["product_name"]
+        ]);
+        return $query->fetch(PDO:: FETCH_ASSOC);
+    }
 
     public function seeProducts()
     {

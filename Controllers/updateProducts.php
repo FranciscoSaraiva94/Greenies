@@ -1,8 +1,10 @@
 <?php
 
 require("models/products.php");
+require("models/promotions.php");
 
 $productsModel = new Products();
+$promosModel= new promotions();
 
 $products = $productsModel->seeProducts();
 
@@ -17,16 +19,24 @@ $products = $productsModel->seeProducts();
         $fileActualExt = strtolower(end($fileExt));
         $allowed = ["jpg", "jpeg", "png", "pdf", ""];
         if (in_array($fileActualExt, $allowed)) {
+            $discountPercentage = $promosModel->getPercentage($_POST["product_name"]);
+            $product = $productsModel->noImageUpdate($_POST);
+            $noDiscountPrice = $_POST["price"];
+            $id = $productsModel->getId($_POST["product_name"]);
+            $discountPercentage = $discountPercentage["discountPercentage"];
+            $discountPrice = ($discountPercentage / 100) * $noDiscountPrice;
+            $actualPrice = $noDiscountPrice - $discountPrice;
             if ($fileSize < 10) {
-                $product = $productsModel->noImageUpdate($_POST);
-                $message = 'Product price and Stock changed';
+                if ($discountPercentage) {
+                    $updatePromoPrice = $promosModel->updatePromoPrice($id, $discountPercentage, $noDiscountPrice, $actualPrice, $_POST["product_name"]);
+                } else {
+                    $product = $productsModel->noImageUpdate($_POST);
+                }
             } else {
                 $fileNameNew = uniqid('', true).".".$fileActualExt;
                 $fileDestination = './imagens/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
-
                 $product = $productsModel->updateProducts($_POST, $fileDestination);
- 
                 $message = 'The product with the name ' .$_POST["product_name"].' was updated successfully';
             }
         } else {

@@ -3,48 +3,50 @@
 require_once("base.php");
 class promotions extends Base
 {
-    public function setPromo($data, $product)
+    public function setPromo($id, $price, $discountPercentage, $promotedPrice, $name)
     {
         $query = $this->db->prepare("
             INSERT into promotions
-              (product_id, discountPercentage, name)
-              VALUES (?,?,?)
+            (product_id, price, discountPercentage, discountPrice, name)
+            VALUES (?,?,?,?,?)
             ");
     
         $query->execute([
-                $product["product_id"],
-                $data["price"],
-                $product["name"]
+                $id,
+                $price,
+                $discountPercentage,
+                $promotedPrice,
+                $name
             ]);
     }
+    public function updatePromoPrice($id, $discountPercentage, $price, $discountPrice, $name)
+    {
+        $query = $this->db->prepare("
+              INSERT INTO promotions
+              (product_id, discountPercentage, price, discountPrice, name)
+              VALUES (?,?,?,?,?)
+     
+          ");
+        return $query->execute([
+              $id["product_id"],
+              $discountPercentage,
+              $price,
+              $discountPrice,
+              $name
+          ]);
+    }
+    
     public function getPromo($data)
     {
-        $last_id = $this->db->lastInsertId();
-
         $query = $this->db->prepare("
-        
+
             SELECT product_id, discountPercentage, name, promo_id
             FROM promotions
-            WHERE product_id = ? AND promo_id = ?
+            WHERE product_id = ? 
             ");
 
         $query->execute([
              $data["product_id"],
-             $last_id
-            ]);
-        return $query->fetch(PDO:: FETCH_ASSOC);
-    }
-
-    public function insertNewPrice($data, $name1, $name2)
-    {
-        $query = $this->db->prepare("
-            Update promotions
-            SET discountPrice = $data
-            WHERE name = ?
-            ");
-
-        $query->execute([
-            $name1 = $name2
             ]);
         return $query->fetch(PDO:: FETCH_ASSOC);
     }
@@ -66,11 +68,35 @@ class promotions extends Base
         $query = $this->db->prepare("
         Select product_id, discountPrice, name
         FROM promotions
-
         ");
         $query->execute([
-
             ]);
         return $query->fetchAll(PDO:: FETCH_ASSOC);
+    }
+
+    public function verifyPromo($data)
+    {
+        $query = $this->db->prepare("
+             Select product_id
+             FROM promotions
+             WHERE product_id = ?
+         ");
+
+        $query->execute([
+             $data
+         ]);
+        return $query->fetch(PDO:: FETCH_ASSOC);
+    }
+    public function getPercentage($data)
+    {
+        $query = $this->db->prepare("
+            Select discountPercentage
+            from promotions
+            where name = ?
+        ");
+        $query->execute([
+            $data
+            ]);
+        return $query->fetch(PDO:: FETCH_ASSOC);
     }
 }

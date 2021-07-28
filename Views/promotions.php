@@ -43,8 +43,9 @@
 						</select>
 					</div>
                     <div class="wrap-input100 validate-input">
-						<input class="input100" type="number" name="price" id="">
-						<span class="focus-input100" data-placeholder="Discounted Percentage"></span>
+                        <h6 class="details">Discount Percentage</h6>
+						<input class="input100" type="number" name="discountPercentage" id="">
+						<span class="focus-input100"></span>
 					</div>
                         Discount Photo
                     <div>
@@ -98,3 +99,4 @@
 	<!--===============================================================================================-->
 	<script src="loginFiles/js/main.js"></script>
 </html>
+
