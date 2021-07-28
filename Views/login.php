@@ -25,7 +25,7 @@
 			<div class="wrap-login100">
 				<form method="POST" action="?controller=access&action=login" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
-						<a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
+						<a class="navbar-brand" href="#"><img src="http://localhost/greenies/images/logo.svg" class="logo" alt=""
 								srcset=""></a>
 					</span>
 					<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">

@@ -35,7 +35,7 @@
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-            <a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
+            <a class="navbar-brand" href="#"><img src="http://localhost/greenies/images/logo.svg" class="logo" alt=""
 								srcset=""></a> 
             <article enctype="multipart/form-data" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">

@@ -34,7 +34,7 @@ $products = $productsModel->seeProducts();
                 }
             } else {
                 $fileNameNew = uniqid('', true).".".$fileActualExt;
-                $fileDestination = './imagens/'.$fileNameNew;
+                $fileDestination = './images/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
                 $product = $productsModel->updateProducts($_POST, $fileDestination);
                 $message = 'The product with the name ' .$_POST["product_name"].' was updated successfully';

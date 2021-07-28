@@ -5,7 +5,6 @@ require("models/orders.php");
 require("models/products.php");
 require("models/users.php");
 
-
 if (isset($_POST["send"]) &&
     isset($_SESSION["cart"]) &&
     !empty($_POST["card_name"])&&
@@ -32,8 +31,9 @@ if (isset($_POST["send"]) &&
         $insertOrderDetail = $ordersDetailsModel->insertOrderDetails($item, $insertOrder);
         $updateStock = $productsModel->updateStock($item);
     }
-    unset($_SESSION["cart"]);
-    require("views/endPurchase.php");
+    $_SESSION["email"] = $email;
+    require("controllers/mailer.php");
+//unset($_SESSION["cart"]);
 } else {
     echo '400 Bad Request';
 }

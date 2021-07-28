@@ -11,7 +11,7 @@ $products = $productsModel->seeProducts();
 
 if (isset($_POST["send"])) {
     $deletedProduct = $productsModel->deleteProduct($_POST);
-    $message = 'O produto ' . $_POST["product_name"] . ' foi removido com sucesso';
+    $message = 'The product ' . $_POST["product_name"] . ' was removed successfully';
 }
 
 require("views/deleteProducts.php");

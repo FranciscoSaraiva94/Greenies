@@ -54,15 +54,10 @@ body {
         display:none
     }
     .topnav{
-        display: -webkit-flex;
         display: flex;
-        flex-direction: row;
     }
     .topnav a{
-        flex:2
-        position:relative;
-        text-align:center;
-        font-size:20px;
+        font-size:18px;
     }
 }
 </style>

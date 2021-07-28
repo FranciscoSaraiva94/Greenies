@@ -18,18 +18,24 @@
         .btn-primary{
             background-color:#15ca52;
         }
+        .successfulPurchase{
+            margin-top:50px;
+            width:300px;
+            margin-bottom:50px;
+        }
     </style>
-<div class="jumbotron text-center">
-  <h1 class="display-5">Thank You <?=$_SESSION["name"]?>!</h1>
-  <p class="lead"><strong>An invoice</strong> with the details of your most recent purchase has been sent to your         <strong>e-mail<strong>
-  </p>
-  <p>
-    Having trouble? <a href="">Contact us</a>
-  </p>
-  <p class="lead">
-    <a class="btn btn-primary btn-sm" href="./" role="button">Continue to homepage</a>
-  </p>
+    <div class="jumbotron text-center">
+        <h2 class="display-5">Thank You <?=$_SESSION["name"]?>!</h2>
+        <p class="lead">
+            <strong>An invoice</strong> with the details of your most recent purchase has been sent to <strong><?=$_SESSION["email"]?><strong>
+        </p>
+        <img class="successfulPurchase" src="./images/successfulPurchase.svg" alt="" srcset="">
+        <p>
+            Having trouble? <a href="">Contact us</a>
+        </p>
+        <p class="lead">
+            <a class="btn btn-primary btn-sm" href="./" role="button">Continue to homepage</a>
+        </p>
 </div>
-    
 </body>
 </html>

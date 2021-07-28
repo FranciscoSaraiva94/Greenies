@@ -23,8 +23,6 @@
                 <form method="POST" action="?controller=updateProducts" class="login100-form validate-form">
                     <span class="login100-form-title p-b-48">
                     <h2>Delete Products</h2>
-        <!-- <a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
-                        srcset=""></a> -->
                     </span>
             Product to Remove
                     <div class="wrap-input100 validate-input">

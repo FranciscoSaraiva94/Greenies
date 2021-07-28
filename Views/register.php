@@ -22,7 +22,7 @@
 			<div class="wrap-login100">
 				<form method="POST" action="?controller=access&action=register"class= "login100-form validate-form">
 					<span class="login100-form-title p-b-48">
-						<img src="http://localhost/greenies/imagens/logo.svg"></a>
+						<img src="http://localhost/greenies/images/logo.svg"></a>
 					</span>
 						<label class="wrap-input100 validate-input">
                         <h6 class="details">Name</h6>

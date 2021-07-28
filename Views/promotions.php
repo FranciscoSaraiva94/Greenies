@@ -27,8 +27,6 @@
 				<form method="POST" action="?controller=promotions" enctype="multipart/form-data" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
                     <h2> Promote Product </h2>
-                <!-- <a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
-								srcset=""></a> -->
 					</span>
 					Product to Update
 					<div class="wrap-input100 validate-input">

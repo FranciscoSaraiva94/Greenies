@@ -12,30 +12,29 @@
 </head>
 <body>
     <style>
-        .seeProducts{
-            width:50%;
-            margin:auto; 
-        }
+        
         body{
             margin:0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
             Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         }
-        
+        .images{
+            width:10%;
+        }
     
     h1{
         text-align:center;
     }
     </style>
     <h1>Current products</h1>
-<table class="seeProducts">
+    <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>product_id</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Photo</th>
+        <th scope="col">Name</th>
+        <th scope="col">product_id</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Photo</th>
         </tr>
     </thead>
 
@@ -54,7 +53,7 @@ $noStock = "<p role='warning'>out of stock";
         }
         echo '
               <th> '.$product["stock"].'        </th>
-              <th> <img class="imagens"src="'.$product["photo"].'"></th>'.
+              <th> <img class="images"src="'.$product["photo"].'"></th>'.
              '</tr>';
     }
 ?>

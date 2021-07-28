@@ -11,9 +11,9 @@
     <section class="intro">
       <div class="texto">
         <h1 class="frase">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</h1>
-        <button class="introBtn">Conheça os nossos produtos <img src="http://localhost/greenies/imagens/seta.svg" alt=""></button>
+        <button class="introBtn">Get to know our products<img src="http://localhost/greenies/images/seta.svg" alt=""></button>
       </div>
-      <img src="http://localhost/greenies/imagens/pablo-healthy-life.png" class="img1" alt="ilustration">
+      <img src="http://localhost/greenies/images/pablo-healthy-life.png" class="img1" alt="ilustration">
     </section>
 
   <!--
@@ -33,18 +33,18 @@
     </div>
 -->
     <div class="grid-mobile">
-      <header class="list">Os nossos produtos</header>
+      <header class="list">Our products</header>
       <section class="loja">
         <div class="produtos">
           <div class="secondNav">
             <div class="filterBtns">
-              <button type="button" class="filterBtn" data-btn="todos">Todos</button>
-              <button type="button" class="filterBtn" data-btn="legumes">Legumes</button>
-              <button type="button" class="filterBtn" data-btn="frutas">Frutas</button>
+              <button type="button" class="filterBtn" data-btn="All">All</button>
+              <button type="button" class="filterBtn" data-btn="Veggies">Veggies</button>
+              <button type="button" class="filterBtn" data-btn="fruits">Fruits</button>
             </div>
             <form class="search-container">
-              <input type="text" placeholder="Procurar..." name="search">
-              <img src="http://localhost/greenies/imagens/lupa.svg" alt="search">
+              <input type="text" placeholder="Search..." name="search">
+              <img src="http://localhost/greenies/images/lupa.svg" alt="search">
             </form>
           </div>
         </div>
@@ -81,7 +81,7 @@
             <input type="hidden" name="price" value="'.$product["price"].'">
             <input type="hidden" name="discount" value="'.$discount.'">
             <input type="hidden" name="oldPrice" value="'.$old_price.'">
-            <button name="send" class="cartButtonAdd">ADICIONAR <img src="imagens/cartblue.svg" alt="cart" id="secondCart"></button>
+            <button name="send" class="cartButtonAdd">ADICIONAR <img src="images/cartblue.svg" alt="cart" id="secondCart"></button>
           </label>
         </form>
     </article>      

@@ -53,15 +53,13 @@ body {
     .logo{
         display:none
     }
-    .top nav a{
-        margin:auto;
-        font-size:15px;
+    .topnav{
+        display: flex;
     }
-    .leftNav a{
-        font-size:1.5rem;
-        text-align:center;
+    .topnav a{
+        font-size:18px;
     }
-  }
+
 </style>
 </head>
 <body>

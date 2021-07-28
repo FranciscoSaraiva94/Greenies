@@ -26,14 +26,14 @@ if (isset($_POST["send"])) {
         if ($fileError === 0) {
             if ($fileSize < 5000000) {
                 $fileNameNew = uniqid('', true).".".$fileActualExt;
-                $fileDestination = './imagens/'.$fileNameNew;
+                $fileDestination = './images/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
             
                 print_r($fileDestination);
                 print_r($_POST);
                 $product = $productsModel->createProduct($_POST, $fileDestination);
 
-                $message = 'O produto '.$_POST["name"]. " foi adicionado corretamente";
+                $message = 'The product '.$_POST["name"]. " was added correctly";
             } else {
                 $message ='file is too big';
             }

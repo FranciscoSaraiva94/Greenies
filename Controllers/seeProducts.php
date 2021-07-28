@@ -5,8 +5,6 @@ if (!$_SESSION["user_type"] || $_SESSION["user_type"]  === "user") {
     header("Location: ./");
     exit;
 }
-
-
 $productsModel = new Products();
 
 $products = $productsModel->seeProducts();

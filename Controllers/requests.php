@@ -2,14 +2,11 @@
 
 require("models/products.php");
 
-
-// no printing strings or else gg json
-
 header("Content-type: application/json");
 
-if(!isset($_POST["request"])){
+if (!isset($_POST["request"])) {
     header("HTTP/1.1 400 Bad Request");
-    die ('{"status":"Error"}');
+    die('{"status":"Error"}');
 }
 
 if (
@@ -20,8 +17,7 @@ if (
 ) {
     unset($_SESSION["cart"][(int)$_POST["product_id"] ]);
     echo '{"status":"OK"}';
-}
-else if (
+} elseif (
     $_POST["request"] === "changeQuantity" &&
     !empty($_POST["product_id"]) &&
     is_numeric($_POST["product_id"]) &&
@@ -31,11 +27,9 @@ else if (
 ) {
     $productsModel = new Products();
     $product = $productsModel->updateQuantities($_POST);
-    if(!empty($product)) {
-        
+    if (!empty($product)) {
         $_SESSION["cart"][$product["product_id"]]["quantity"] = (int)$_POST["quantity"];
    
         echo '{"status":"OK"}';
-   
-       }
-   };
+    }
+};
