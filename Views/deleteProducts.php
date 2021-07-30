@@ -16,11 +16,10 @@
         }
     </style>
     
-<form action="?controller=deleteProducts" method="post">	
+<form action="deleteProducts" method="post"class="login100-form validate-form">
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form method="POST" action="?controller=updateProducts" class="login100-form validate-form">
                     <span class="login100-form-title p-b-48">
                     <h2>Delete Products</h2>
                     </span>
@@ -59,7 +58,7 @@ if (isset($message)) {
     echo '<p>';
 }
 ?>
-                        <a href="?controller=admin" class="txt2" href="#">
+                        <a href="admin" class="txt2" href="#">
                         Return to admnistration area
                     </a>
                     <br>

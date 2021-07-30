@@ -31,6 +31,9 @@
 }
     </style>
 </head>
+    <link rel="stylesheet" type="text/css" href="./loginFiles/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/util.css">
+	<link rel="stylesheet" type="text/css" href="./main.css">
 <body>
 <div class="limiter">
 		<div class="container-login100">
@@ -42,11 +45,11 @@
                     <h2>Admin Area</h2>
 					</span>
                     <ul>
-                            <li><a href="?controller=addProducts">Add Products</a></li>
-                            <li><a href="?controller=deleteProducts">Delete products</a></li>
-                            <li><a href="?controller=updateProducts">Update Products</a></li>
-                            <li><a href="?controller=seeProducts">See current Products</a></li>
-							<li><a href="?controller=promotions">Promote Products</a></li>
+                            <li><a href="addProducts">Add Products</a></li>
+                            <li><a href="deleteProducts">Delete products</a></li>
+                            <li><a href="updateProducts">Update Products</a></li>
+                            <li><a href="seeProducts">See current Products</a></li>
+							<li><a href="promotions">Promote Products</a></li>
                             <li><a href="./">Return to the main page</a></li>
                      </ul>
             </article>

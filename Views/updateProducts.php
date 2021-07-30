@@ -20,7 +20,7 @@
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form method="POST" action="?controller=updateProducts" enctype="multipart/form-data" class="login100-form validate-form">
+				<form method="POST" action="updateProducts" enctype="multipart/form-data" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
                     <h2> Update Products </h2>
                 <!-- <a class="navbar-brand" href="#"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt=""
@@ -65,7 +65,7 @@
      echo $message;
      echo '<p>';
  }
-?>						<a href="?controller=admin" class="txt2" href="#">
+?>						<a href="admin" class="txt2" href="#">
 							Return to admnistration area
 						</a>
 						<br>

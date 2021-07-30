@@ -73,7 +73,7 @@
           echo '<h4 class="precoDoProduto">'.$product["price"].'€/kg</h4>';
       }
       echo '
-      <form method="post" action="?controller=cart">
+      <form method="post" action="cart">
           <label>
             <input type="number" class="value" value = "1" min="1" max="'.$product["stock"].'" name="quantity">
             <input type="hidden" name="product_id" value="'.$product["product_id"].'">

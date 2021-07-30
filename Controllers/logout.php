@@ -4,4 +4,4 @@
 
   session_destroy();
   
-  header("Location: ?controller=home");
+  header("Location: ./");

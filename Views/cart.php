@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentProduct = button.parentNode.parentNode;
             const product_id = currentProduct.dataset.product_id;
 
-            fetch("http://localhost/greenies/?controller=requests", {
+            fetch("http://localhost/greenies/requests", {
                             method: "POST",
                             headers: {
                                 "Content-Type":"application/x-www-form-urlencoded"
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
                const product_id = item.dataset.product_id;
                const quantity = element.value;
     
-               fetch("http://localhost/greenies/?controller=requests", {
+               fetch("http://localhost/greenies/requests", {
                             method: "POST",
                             headers: {
                                 "Content-Type":"application/x-www-form-urlencoded"
@@ -166,8 +166,8 @@ die();
             </tr>
        </table>
 </main>
-       <a href="?controller=reviewPurchase">Checkout</a>
-       <a href="?controller=home">Return home</a>
+       <a href="reviewPurchase">Checkout</a>
+       <a href="home">Return home</a>
     
 </body>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>

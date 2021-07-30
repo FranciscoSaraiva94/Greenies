@@ -60,7 +60,7 @@ $noStock = "<p role='warning'>out of stock";
 
 </table>
 
-<a href="?controller=admin">See list again</a>
+<a href="admin">See list again</a>
     <br>
     <a href="./">Home</a>
 </body>

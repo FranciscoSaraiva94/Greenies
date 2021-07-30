@@ -54,13 +54,13 @@
 <a href="./"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt="" srcset=""></a>
 <div class="leftNav">
   <a href="./">Home</a>
-  <a href="?controller=admin">AdminArea</a>
+  <a href="admin">AdminArea</a>
 <?php
 
    if (isset($_SESSION["name"])) {
        ?>
      <a><?=$_SESSION["name"]?></a>
-     <a href="?controller=logout">Logout</a>
+     <a href="logout">Logout</a>
 
 <?php
    } else {

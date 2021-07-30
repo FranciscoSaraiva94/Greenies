@@ -27,7 +27,7 @@
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-            <form method="post" action="?controller=addProducts" enctype="multipart/form-data" class="login100-form validate-form">
+            <form method="post" action="addProducts" enctype="multipart/form-data" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
                     <h2>Add Products</h2>
 					</span>
@@ -75,7 +75,7 @@
      echo '<p>';
  }
 ?>	    
-						<a href="?controller=admin" class="txt2" href="#">
+						<a href="admin" class="txt2" href="#">
 							Return to admnistration area
 						</a>
 						<br>

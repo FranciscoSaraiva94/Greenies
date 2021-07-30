@@ -64,27 +64,27 @@ body {
 </head>
 <body>
 <div class="topnav" id="myTopnav">
-<a href="./"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt="" srcset=""></a>
+<a href="./"><img src="http://localhost/greenies/images/logo.svg" class="logo" alt="" srcset=""></a>
 <div class="leftNav">
   <?php
    if (isset($_SESSION["name"])) {
        ?>
     <a href=""class="loggedUser"><?=$_SESSION["name"]?></a>
-    <a href="?controller=logout">Logout</a>
+    <a href="logout">Logout</a>
 <?php
    if ($_SESSION["user_type"] === "admin") {
        ?>
-        <a href="?controller=admin">AdminArea</a>
+        <a href="admin">AdminArea</a>
 <?php
    } ?>
 <?php
    } else {
        ?>
-   <a href="?controller=access&action=login">Login</a>
+   <a href="access/login">Login</a>
 <?php
    }
 ?>
-      <a href="?controller=cart"><img src="imagens/cartblack.svg">(<?=$cart_items?>)</a>
+      <a href="cart"><img src="images/cartblack.svg">(<?=$cart_items?>)</a>
         </ul>
       </div>
 </nav>

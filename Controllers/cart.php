@@ -26,7 +26,7 @@ if (isset($_POST["send"])) {
                 "old_price"     => $_POST["oldPrice"]
             ];
         }
-        header("Location: ?controller=cart");
+        header("Location: cart");
     }
 }
 require("views/cart.php");

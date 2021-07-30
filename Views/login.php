@@ -5,6 +5,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="stylesheet" type="text/css" href="../loginFiles/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/util.css">
+	<link rel="stylesheet" type="text/css" href="../main.css">
 
 <head>
 	<title>Login</title>
@@ -23,7 +26,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form method="POST" action="?controller=access&action=login" class="login100-form validate-form">
+				<form method="POST" action="login" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
 						<a class="navbar-brand" href="#"><img src="http://localhost/greenies/images/logo.svg" class="logo" alt=""
 								srcset=""></a>
@@ -60,11 +63,11 @@
 						<span class="txt1">
 							Don’t have an account?
 						</span>
-						<a href="?controller=access&action=register" class="txt2" href="#">
+						<a href="register" class="txt2" href="#">
 							Sign Up
 						</a>
 						<br>
-						<a href="./" class="txt2" href="#">
+						<a href="../" class="txt2" href="#">
 							Return home
 						</a>
 					</div>

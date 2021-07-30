@@ -82,7 +82,7 @@ $total = 0.00;
                 </td>
             </tr>
        </table>
-<form action="?controller=endPurchase" method="post">	
+<form action="endPurchase" method="post">	
   <div class="container">
     <div class="row">
         <div class="col-xs-9 col-md-42">

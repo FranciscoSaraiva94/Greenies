@@ -71,18 +71,18 @@ body {
        ?>
     <a href="./">Home</a>
     <a href=""class="loggedUser"><?=$_SESSION["name"]?></a>
-    <a href="?controller=logout">Logout</a>
-    <a class="checkout" href="?controller=reviewPurchase">Checkout</a>
+    <a href="logout">Logout</a>
+    <a class="checkout" href="reviewPurchase">Checkout</a>
 <?php
    if ($_SESSION["user_type"] === "admin") {
        ?>
-        <a href="?controller=admin">AdminArea</a>
+        <a href="admin">AdminArea</a>
 <?php
    } ?>
 <?php
    } else {
        ?>
-   <a href="?controller=access&action=login">Login</a>
+   <a href="access/login">Login</a>
 <?php
    }
 ?>
