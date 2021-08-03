@@ -8,84 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title> 
-    <script>
-
-document.addEventListener("DOMContentLoaded", () => {
-
-        function recalculateTotal(){
-           let total = 0;
-           let subtotals = document.querySelectorAll(".subtotal");
-           subtotals.forEach(subtotal => {
-            total = total + parseInt(subtotal.textContent);
-           })
-          document.querySelector(".total").textContent = total;
-       }
-    
-       const removeBtns = document.querySelectorAll(".remove");
-
-        function  recalculateSubtotals(element){
-            const tr = element.parentNode.parentNode;
-            const price = tr.dataset.price;
-            const quantity = element.value;
-            tr.querySelector(".subtotal").textContent = price * quantity;
-            recalculateTotal();
-        }
-
-       removeBtns.forEach(button => {
-        button.addEventListener("click", () => {   
-            const currentProduct = button.parentNode.parentNode;
-            const product_id = currentProduct.dataset.product_id;
-
-            fetch("http://localhost/greenies/requests", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type":"application/x-www-form-urlencoded"
-                            },
-                            body: "request=removeProduct&product_id=" + product_id
-                        })
-                        .then( response => response.json() )
-                        .then( parsedResponse => {
-                            console.log(parsedResponse.status)
-                            if( parsedResponse.status == "OK"){
-                                currentProduct.remove();
-                                recalculateTotal();
-                            }
-                        });
-                    });
-        }
-    )
-       
-    const currentQuantity = document.querySelectorAll(".quantity");
-
-        currentQuantity.forEach(element => {
-            element.addEventListener("change", () =>{
-               const item = element.parentNode.parentNode;
-               const product_id = item.dataset.product_id;
-               const quantity = element.value;
-    
-               fetch("http://localhost/greenies/requests", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type":"application/x-www-form-urlencoded"
-                            },
-                            body: "request=changeQuantity&product_id=" + product_id + "&quantity=" + quantity
-                        })
-                        .then(response => response.json())
-                        .then(parsedResponse =>{
-                            if(parsedResponse.status == "OK") {
-                                recalculateSubtotals( element );
-                            }
-                        });
-            })
-        })
-    
-});
-    </script>
     <head>  
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-      </head> 
+           <script src="./js/cart.js"></script>
+      </head>
 <h2>Cart</h2>
       <style>
           h2{
@@ -103,18 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
 </head>
 <body>
 <?php
- 
   if (empty($_SESSION["cart"])) {
       echo 'please select some items first'; ?>
       <style>
-        .checkout{
-        display:none;
-}     </style>
+        .checkout{display:none;}     
+     </style>
 <?php
 die();
   }
 ?>
-
 <?php
     if (!empty($_SESSION["cart"])) {
         ?>
@@ -168,6 +93,5 @@ die();
 </main>
 </body>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <script src="script.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </html>

@@ -17,6 +17,7 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
+
 body {
   margin: 0;
 }
@@ -63,9 +64,9 @@ body {
 </style>
 </head>
 <body>
-<div class="topnav" id="myTopnav">
-<a href="./"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt="" srcset=""></a>
-<div class="leftNav">
+<nav class="topnav sticky-top" id="myTopnav">
+    <a href="./"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt="" srcset=""></a>
+    <div class="leftNav">
   <?php
    if (isset($_SESSION["name"])) {
        ?>
@@ -76,7 +77,7 @@ body {
 <?php
    if ($_SESSION["user_type"] === "admin") {
        ?>
-        <a href="admin">AdminArea</a>
+    <a href="admin">AdminArea</a>
 <?php
    } ?>
 <?php
@@ -86,11 +87,7 @@ body {
 <?php
    }
 ?>
-        </ul>
-      </div>
 </nav>
 </div>
-</script>
-
 </body>
 </html>

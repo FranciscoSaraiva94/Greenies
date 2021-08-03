@@ -19,7 +19,7 @@
             Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         }
         .images{
-            width:10%;
+            width:30%;
         }
     
     h1{
@@ -34,11 +34,11 @@
     <table class="table table-bordered">
     <thead>
         <tr>
-        <th scope="col">Name</th>
-        <th scope="col">product_id</th>
-        <th scope="col">Price</th>
-        <th scope="col">Stock</th>
-        <th scope="col">Photo</th>
+        <th width="20%">Name</th>
+        <th width="20%">product_id</th>
+        <th width="20%">Price</th>
+        <th width="20%">Stock</th>
+        <th width="20%">Photo</th>
         </tr>
     </thead>
 
@@ -47,17 +47,30 @@
 $noStock = "<p role='warning'>out of stock";
 
     foreach ($products as $product) {
+        $discount = 0;
+        $old_price = $product["price"];
+        foreach ($promotions as $promotion) {
+            if (array_key_exists("product_id", $promotion) && $promotion["product_id"] === $product["product_id"]) {
+                $discount = $promotion["discountPrice"];
+            }
+        }
         echo '<tr class="allitems">
-              <th> '.$product["name"].'         </th>
-              <th> '.$product["product_id"].'   </th>
-              <th> '.$product["price"].'        </th>
+              <td> '.$product["name"].'         </td>
+              <td> '.$product["product_id"].'   </td>';
+        if ($discount) {
+            echo '<td><s><small class="text-primary">'.$product["price"].'€ </small></s>'.$discount.'€/kg</td>';
+            $product["price"] = $discount;
+        } else {
+            echo '<td class="precoDoProduto">'.$product["price"].'€/kg</td>';
+        }
+        echo '
 ';
         if ($product["stock"] == 0) {
             $product["stock"] = $noStock;
         }
         echo '
-              <th> '.$product["stock"].'        </th>
-              <th> <img class="images"src="'.$product["photo"].'"></th>'.
+              <td> '.$product["stock"].'        </td>
+              <td> <img class="images"src="'.$product["photo"].'"></td>'.
              '</tr>';
     }
 ?>

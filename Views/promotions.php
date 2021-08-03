@@ -5,28 +5,27 @@
 <?php
     require("formIncludes.php");
 ?>
-    <title>Update Products</title>
+<title>Update Products</title>
 </head>
 <style>
-        .file{
-        position:relative;
-        font-size:13px;
-        }
-        .text-center{
-            padding-top:50px;
-        }
-    </style>
+    .file{
+    position:relative;
+    font-size:13px;
+    }
+    .text-center{
+        padding-top:50px;
+    }
+</style>
 <body>
 <?php
     require("navbars/adminNav.php");
 ?>
-
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form method="POST" action="promotions" enctype="multipart/form-data" class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
-                    <h2> Promote Product </h2>
+                        <h2> Promote Product </h2>
 					</span>
 					Product to Update
 					<div class="wrap-input100 validate-input">
@@ -37,7 +36,6 @@
             echo '<option>' .$product["name"]. '</option>';
         }
     ?>
-
 						</select>
 					</div>
                     <div class="wrap-input100 validate-input">
@@ -45,10 +43,6 @@
 						<input class="input100" type="number" name="discountPercentage" id="">
 						<span class="focus-input100"></span>
 					</div>
-                        Discount Photo
-                    <div>
-                        <input type="file" class="file" name="file">
-                    </div>
 					<input type="hidden" name="product_id" value="<?=$product["product_id"]?>">
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">

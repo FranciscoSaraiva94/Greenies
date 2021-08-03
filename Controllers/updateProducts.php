@@ -14,6 +14,10 @@ $products = $productsModel->seeProducts();
 if (
     isset($_POST["send"]) &&
     !empty($_POST["stock"]) || !empty($_POST["price"])) {
+    if ($_POST["price"] === "") {
+        $getPrice = $productsModel->getPrice($_POST["product_name"]);
+        $noDiscountPrice = $getPrice;
+    }
     $file = $_FILES["file"];
     $fileName = $file["name"];
     $fileTmpName = $file["tmp_name"];

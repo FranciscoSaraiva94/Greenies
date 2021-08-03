@@ -49,8 +49,6 @@ max-width:50%
         die();
     }
 ?>
-
-
     <h3 class="text-center">Order Details</h3>
     <table class="table table-bordered">
     <thead>
@@ -60,7 +58,6 @@ max-width:50%
             <th scope="col">Price</th>
             <th scope="col">Total</th>
         </tr>
-
 <?php
 $total = 0.00;
         foreach ($_SESSION["cart"] as $product) {
@@ -129,10 +126,10 @@ $total = 0.00;
                             <div class="form-group">
                                 <label for="expityMonth">
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="number" class="form-control" id="expityMonth" min="1" max="12" maxlength="2" placeholder="MM" required />
+                                    <input type="number" class="form-control" id="expityMonth" name="month" min="1" max="12" maxlength="2" placeholder="MM" required />
                                 </div>
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityYear" min="2021" minLength="4" maxlength="4" placeholder="YYYY" required /></div>
+                                    <input type="text" class="form-control" id="expityYear" name="year" min="2021" minLength="4" maxlength="4" placeholder="YYYY" required /></div>
                             </div>
                         </div>
                         <div class="col-xs-5 col-md-5 pull-right">

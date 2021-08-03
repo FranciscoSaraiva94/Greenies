@@ -63,7 +63,7 @@ body {
 </style>
 </head>
 <body>
-<div class="topnav" id="myTopnav">
+<nav class="topnav sticky-top" id="myTopnav">
 <a href="./"><img src="http://localhost/greenies/images/logo.svg" class="logo" alt="" srcset=""></a>
 <div class="leftNav">
   <?php
@@ -90,6 +90,5 @@ body {
 </nav>
 </div>
 </script>
-
 </body>
 </html>

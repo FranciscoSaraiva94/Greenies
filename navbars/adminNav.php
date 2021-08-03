@@ -49,7 +49,7 @@
 </style>
 </head>
 <body>
-<div class="topnav" id="myTopnav">
+<nav class="topnav sticky-top"  id="myTopnav">
 <a href="./"><img src="http://localhost/greenies/imagens/logo.svg" class="logo" alt="" srcset=""></a>
 <div class="leftNav">
   <a href="./">Home</a>
@@ -67,7 +67,7 @@
    }
 ?>
 </div>
-</div>
+</nav>
 </script>
 
 </body>

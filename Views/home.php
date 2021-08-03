@@ -6,7 +6,6 @@
 <head>
 </head>
 <body>
- 
   <main>
     <section class="intro">
       <div class="texto">
@@ -15,26 +14,9 @@
       </div>
       <img src="http://localhost/greenies/images/pablo-healthy-life.png" class="img1" alt="ilustration">
     </section>
-
-  <!--
-    <header class="list" id="promotions">As nossas promoções</header>
-    <div class="carousel">
-      <section class="main-carousel">
-        <div class="carousel-cell">
-          <img src="./imagens/promotionEsparg.png">
-        </div>
-        <div class="carousel-cell">
-          <img src="imagens/promotionbanana.png">
-        </div>
-        <div class="carousel-cell">
-          <img src="imagens/promotionkiwi.png">
-        </div>
-      </section>
-    </div>
--->
     <div class="grid-mobile">
       <header class="list">Our products</header>
-      <section class="loja">
+        <section class="loja">
         <div class="produtos">
           <div class="secondNav">
             <div class="filterBtns">
@@ -50,7 +32,6 @@
         </div>
     </div>
     <div class="itemSection">
-
 <?php
   foreach ($products as $product) {
       $discount = 0;
@@ -89,16 +70,14 @@
   }
 ?>
 
-</div>
-     
+        </div>
     </div>
   </main>
-
   <div class="footer">
     <p>Todos os direitos reservados © Greenies 2021</p>
   </div>
 </body>
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <script src="script.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="./js/script.js"></script>
 </html>

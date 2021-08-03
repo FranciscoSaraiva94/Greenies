@@ -29,5 +29,4 @@ if (isset($_POST["send"]) &&
     $message = 'The product ' .$name. ' is now being promoted with a new price of ' .$actualPrice. '€';
 }
 
-
 require("views/promotions.php");

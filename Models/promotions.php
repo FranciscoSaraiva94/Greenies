@@ -89,13 +89,14 @@ class promotions extends Base
     }
     public function getPercentage($data)
     {
+        $last = $this->db->lastInsertId();
         $query = $this->db->prepare("
             Select discountPercentage
             from promotions
-            where name = ?
+            ORDER BY promo_id DESC LIMIT 1
         ");
         $query->execute([
-            $data
+
             ]);
         return $query->fetch(PDO:: FETCH_ASSOC);
     }

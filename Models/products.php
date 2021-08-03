@@ -91,7 +91,7 @@ class Products extends Base
             ");
 
         $query->execute([
-            $data["product_name"]
+            $data
         ]);
         return $query->fetch(PDO:: FETCH_ASSOC);
     }

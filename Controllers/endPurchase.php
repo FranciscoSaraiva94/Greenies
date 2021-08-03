@@ -1,15 +1,27 @@
 <?php
 
-require("models/orderDetails.php");
-require("models/orders.php");
-require("models/products.php");
-require("models/users.php");
+require_once("models/orderDetails.php");
+require_once("models/orders.php");
+require_once("models/products.php");
+require_once("models/users.php");
 
-if (isset($_POST["send"]) &&
+
+if (!$_SESSION["user_type"]) {
+    header("Location: ./");
+    exit;
+}
+if (
+    isset($_POST["send"]) &&
     isset($_SESSION["cart"]) &&
     !empty($_POST["card_name"])&&
     !empty($_POST["number"])&&
     !empty($_POST["CV"])&&
+    !empty($_POST["total"])&&
+    !empty($_POST["year"])&&
+    $_POST["year"] >= date("Y") &&
+    !empty($_POST["month"])&&
+    $_POST["month"] <= 12 &&
+    $_POST["month"] >= 1 &&
     mb_strlen($_POST["card_name"]) > 3&&
     mb_strlen($_POST["card_name"]) < 60 &&
     (int)$_POST["number"] &&
@@ -35,5 +47,5 @@ if (isset($_POST["send"]) &&
     require("controllers/mailer.php");
     unset($_SESSION["cart"]);
 } else {
-    echo '400 Bad Request';
+    echo 'preencha os dados corretamente';
 }
