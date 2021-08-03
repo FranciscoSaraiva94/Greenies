@@ -9,15 +9,15 @@
 ?>
 
     <style>
-        
-
-     
         ul{
             text-align:center;
         }
       
         ul > li > a{
             font-size:20px;
+            text-decoration: none;
+            color:black;
+
         }
         .logo{
             position: relative;

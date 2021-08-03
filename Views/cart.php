@@ -166,9 +166,6 @@ die();
             </tr>
        </table>
 </main>
-       <a href="reviewPurchase">Checkout</a>
-       <a href="home">Return home</a>
-    
 </body>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>

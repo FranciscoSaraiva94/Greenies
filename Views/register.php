@@ -6,7 +6,9 @@
 <head>
 <link rel="stylesheet" type="text/css" href="../loginFiles/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/util.css">
-	<link rel="stylesheet" type="text/css" href="../main.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
          
     .details{
@@ -19,7 +21,6 @@
 	<title>Register</title>
 </head>
 <body>
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -79,6 +80,7 @@
 						<input class="input100" type="password" required name="repeat_password">
 						<span class="focus-input100"></span>
 					</label>
+                    <div class="g-recaptcha" data-sitekey="6LeTtdgbAAAAAHjlYpgWxS57D4od5BgPU_iSobCm"></div>
 					<input type="text">
 					<label class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">

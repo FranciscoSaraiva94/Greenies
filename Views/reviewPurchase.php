@@ -132,14 +132,14 @@ $total = 0.00;
                                     <input type="number" class="form-control" id="expityMonth" min="1" max="12" maxlength="2" placeholder="MM" required />
                                 </div>
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityYear"  minLength="4" maxlength="4" placeholder="YYYY" required /></div>
+                                    <input type="text" class="form-control" id="expityYear" min="2021" minLength="4" maxlength="4" placeholder="YYYY" required /></div>
                             </div>
                         </div>
                         <div class="col-xs-5 col-md-5 pull-right">
                             <div class="form-group">
                                 <label for="cvCode">
-                                    CV CODE</label>
-                                <input type="password" name="CV"class="form-control" id="cvCode" maxlength="3"  minlength="3" placeholder="CV" required>
+                                    CVV CODE</label>
+                                <input type="password" name="CV"class="form-control" id="cvCode" maxlength="3"  minlength="3" placeholder="CVV" required>
                             </div>
                         </div>
                         <input class= "totalCost" type="hidden" name="total" value=<?=$total?>>

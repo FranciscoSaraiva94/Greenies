@@ -21,7 +21,7 @@
         <div class="container-login100">
             <div class="wrap-login100">
                     <span class="login100-form-title p-b-48">
-                    <h2>Delete Products</h2>
+                        <h2>Delete Products</h2>
                     </span>
             Product to Remove
                     <div class="wrap-input100 validate-input">
@@ -31,17 +31,17 @@
         echo '<option>' .$product["name"]. '</option>';
     }
 ?>
-                        </select>
+                    </select>
                     </div>
                 <div>
                     <label>
-                    Reason to remove
-                    <select name="reason"class="wrap-input100 validate-input">
-                        <option class="focus-input100">No stock</option>
-                        <option class="focus-input100">dislike Vegetables</option>
-                    </select>
-                </label>
-            </div>
+                        Reason to remove
+                        <select name="reason"class="wrap-input100 validate-input">
+                            <option class="focus-input100">No stock</option>
+                            <option class="focus-input100">dislike Vegetables</option>
+                        </select>
+                    </label>
+                </div>
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
@@ -58,7 +58,7 @@ if (isset($message)) {
     echo '<p>';
 }
 ?>
-                        <a href="admin" class="txt2" href="#">
+                    <a href="admin" class="txt2" href="#">
                         Return to admnistration area
                     </a>
                     <br>

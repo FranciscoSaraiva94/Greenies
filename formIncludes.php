@@ -8,5 +8,5 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="./loginFiles/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/util.css">
-	<link rel="stylesheet" type="text/css" href="./main.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
 	<script src="loginFiles/js/main.js"></script>

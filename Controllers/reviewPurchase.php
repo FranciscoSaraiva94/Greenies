@@ -1,6 +1,6 @@
 <?php
 
-if (!isset($_SESSION["cart"])) {
+if (empty($_SESSION["cart"])) {
     echo 'please select some items first';
     die();
 }

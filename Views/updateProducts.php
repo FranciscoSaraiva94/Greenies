@@ -37,7 +37,7 @@
 						</select>
 					</div>
                     <div class="wrap-input100 validate-input">
-                        <h6 class="details">New stock</h6>
+                        <h6 class="details">Add to stock</h6>
 						<input class="input100" type="text" name="stock" id="">
 						<span class="focus-input100">
 					</div>

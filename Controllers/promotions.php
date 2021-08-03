@@ -7,11 +7,14 @@ if (!$_SESSION["user_type"] || $_SESSION["user_type"]  === "user") {
 require("models/products.php");
 
 $productsModel = new Products();
-//display os items no select//
+
 $products = $productsModel->seeProducts();
 
-
-if (isset($_POST["send"])) {
+if (isset($_POST["send"]) &&
+    is_numeric($_POST["discountPercentage"]) &&
+    $_SESSION["user_type"] === "admin" &&
+    !empty($_POST["discountPercentage"])
+) {
     require("models/promotions.php");
     $promosModel = new promotions();
     $product = $productsModel->seeProduct($_POST);
@@ -23,6 +26,7 @@ if (isset($_POST["send"])) {
     $actualPrice = $price - $promotedPrice;
     $promosModel = new promotions();
     $promo = $promosModel->setPromo($id, $price, $discountPercentage, $actualPrice, $name);
+    $message = 'The product ' .$name. ' is now being promoted with a new price of ' .$actualPrice. '€';
 }
 
 

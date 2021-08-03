@@ -7,7 +7,9 @@
 <html lang="en">
     <link rel="stylesheet" type="text/css" href="../loginFiles/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/util.css">
-	<link rel="stylesheet" type="text/css" href="../main.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <head>
 	<title>Login</title>
@@ -44,6 +46,7 @@
 						<input class="input100" type="password" name="password">
 						<span class="focus-input100"></span>
 					</div>
+                    <div class="g-recaptcha" data-sitekey="6LeTtdgbAAAAAHjlYpgWxS57D4od5BgPU_iSobCm"></div>
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>

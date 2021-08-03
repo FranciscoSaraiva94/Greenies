@@ -33,7 +33,7 @@ if (isset($_POST["send"]) &&
     }
     $_SESSION["email"] = $email;
     require("controllers/mailer.php");
-//unset($_SESSION["cart"]);
+    unset($_SESSION["cart"]);
 } else {
     echo '400 Bad Request';
 }

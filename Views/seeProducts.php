@@ -25,6 +25,10 @@
     h1{
         text-align:center;
     }
+    table{
+         margin:auto;
+    }
+  
     </style>
     <h1>Current products</h1>
     <table class="table table-bordered">
@@ -59,9 +63,5 @@ $noStock = "<p role='warning'>out of stock";
 ?>
 
 </table>
-
-<a href="admin">See list again</a>
-    <br>
-    <a href="./">Home</a>
 </body>
 </html>

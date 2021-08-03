@@ -38,11 +38,14 @@ class Products extends Base
     {
         $query = $this->db->prepare("
             UPDATE PRODUCTS
-            SET stock = ".$data["stock"].", photo = '$file', price = ".$data["price"]."
+            SET stock = stock + ?, photo = ?, price = ?
             WHERE name = ?
         ");
 
         $query->execute([
+            $data["stock"],
+            $file,
+            $data["price"],
             $data["product_name"]
         ]);
 
@@ -53,7 +56,7 @@ class Products extends Base
     {
         $query = $this->db->prepare("
         UPDATE PRODUCTS
-        SET stock = ?, price = ?
+        SET stock = stock + ?, price = ?
         WHERE name = ?
     ");
         $query->execute([

@@ -6,8 +6,7 @@ $url_parts = explode("/", $_SERVER["REQUEST_URI"]);
 
 $action = "";
 if (!empty($url_parts[3])) {
-    $action = strip_tags(trim($url_parts[3])); // a posição 3 do array url parts vai ser igual à variavel action que
-    // login\ logout por exemplo
+    $action = strip_tags(trim($url_parts[3]));
 }
 
 

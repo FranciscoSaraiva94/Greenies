@@ -8,11 +8,10 @@
 .topnav {
   overflow: hidden;
   background: #82b5a5;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  position:sticky;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-decoration:none;
-  font-size:300px;
+  position: sticky;
 }
 
 .topnav a {
