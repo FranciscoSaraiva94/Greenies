@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentProduct = button.parentNode.parentNode;
             const product_id = currentProduct.dataset.product_id;
 
-            fetch("https://localhost/greenies/requests", {
+            fetch("http://localhost/Greenies/requests", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const product_id = item.dataset.product_id;
             const quantity = element.value;
 
-            fetch("https://localhost/greenies/requests", {
+            fetch("http://localhost/Greenies/requests", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"

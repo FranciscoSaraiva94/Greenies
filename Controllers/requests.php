@@ -1,9 +1,11 @@
 <?php
 
-if (!$_SESSION["user_type"] || $_SESSION["user_type"]  === "user") {
-    header("Location: ./");
-    exit;
+
+if (!isset($_POST["request"])) {
+    header("HTTP/1.1 400 Bad Request");
+    die('{"status":"Error"}');
 }
+
 
 require("models/products.php");
 

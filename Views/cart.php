@@ -1,5 +1,5 @@
 <?php
-    require("navbars/cartNav.php")
+    require("navbars/cartNav.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

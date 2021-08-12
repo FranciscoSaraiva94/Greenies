@@ -2,6 +2,8 @@
 
 session_start();
 
+header("Access-Control-Allow-Origin: http://localhost");
+
 $url_parts = explode("/", $_SERVER["REQUEST_URI"]);
 
 $action = "";
